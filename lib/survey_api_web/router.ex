@@ -9,5 +9,6 @@ defmodule SurveyAPIWeb.Router do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
     resources "/surveys", SurveyController, except: [:new, :edit]
+    resources "/answers", AnswerController, except: [:new, :edit]
   end
 end
