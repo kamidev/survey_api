@@ -39,6 +39,7 @@ defmodule SurveyAPI.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
       {:cors_plug, "~> 1.2"},
+      {:distillery, "~> 1.5", runtime: false},
       {:cowboy, "~> 1.0"}
     ]
   end
