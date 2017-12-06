@@ -8,7 +8,7 @@ defmodule SurveyAPI.Answers.Answer do
     field :pseudonym, :string
     field :survey_id, :integer
     field :user_id, :integer
-    field :survey_answers, :string
+    field :survey_answers, :map, default: "{}"
 
     timestamps()
   end

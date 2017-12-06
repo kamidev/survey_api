@@ -1,0 +1,9 @@
+POST http://0.0.0.0:4000/api/answers HTTP/1.1
+content-type: application/json
+
+{"answer":{
+  "pseudonym": "random",
+  "survey_id": 2,
+  "user_id": 2,
+  "survey_answers": "sdf"}
+}

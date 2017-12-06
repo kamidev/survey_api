@@ -4,9 +4,9 @@ defmodule SurveyAPIWeb.SurveyControllerTest do
   alias SurveyAPI.Surveys
   alias SurveyAPI.Surveys.Survey
 
-  @create_attrs %{name: "some name", survey_design: "some survey_design", survey_id: 42}
-  @update_attrs %{name: "some updated name", survey_design: "some updated survey_design", survey_id: 43}
-  @invalid_attrs %{name: nil, survey_design: nil, survey_id: nil}
+  @create_attrs %{name: "some name", survey_id: 42}
+  @update_attrs %{name: "some updated name", survey_id: 43}
+  @invalid_attrs %{name: nil, survey_id: nil}
 
   def fixture(:survey) do
     {:ok, survey} = Surveys.create_survey(@create_attrs)
@@ -33,8 +33,8 @@ defmodule SurveyAPIWeb.SurveyControllerTest do
       assert json_response(conn, 200)["data"] == %{
         "id" => id,
         "name" => "some name",
-        "survey_design" => "some survey_design",
-        "survey_id" => 42}
+        "survey_id" => 42,
+        "survey_design" => nil}
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -54,8 +54,8 @@ defmodule SurveyAPIWeb.SurveyControllerTest do
       assert json_response(conn, 200)["data"] == %{
         "id" => id,
         "name" => "some updated name",
-        "survey_design" => "some updated survey_design",
-        "survey_id" => 43}
+        "survey_id" => 43,
+        "survey_design" => nil}
     end
 
     test "renders errors when data is invalid", %{conn: conn, survey: survey} do

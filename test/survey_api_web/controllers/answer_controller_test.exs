@@ -4,8 +4,8 @@ defmodule SurveyAPIWeb.AnswerControllerTest do
   alias SurveyAPI.Answers
   alias SurveyAPI.Answers.Answer
 
-  @create_attrs %{pseudonym: "some pseudonym", survey_id: 42, user_id: 42, survey_answers: "some_json"}
-  @update_attrs %{pseudonym: "some updated pseudonym", survey_id: 43, user_id: 43, survey_answers: "new_json"}
+  @create_attrs %{pseudonym: "some pseudonym", survey_id: 42, user_id: 42, survey_answers: %{"Quality" => %{"affordable" => 2}}}
+  @update_attrs %{pseudonym: "some updated pseudonym", survey_id: 43, user_id: 43, survey_answers: %{"Quality" => %{"affordable" => 2}}}
   @invalid_attrs %{pseudonym: nil, survey_id: nil, user_id: nil, survey_answers: nil}
 
   def fixture(:answer) do
@@ -35,7 +35,7 @@ defmodule SurveyAPIWeb.AnswerControllerTest do
         "pseudonym" => "some pseudonym",
         "survey_id" => 42,
         "user_id" => 42,
-        "survey_answers" =>  "some_json"}
+        "survey_answers" => %{"Quality" => %{"affordable" => 2}}}
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
@@ -57,7 +57,7 @@ defmodule SurveyAPIWeb.AnswerControllerTest do
         "pseudonym" => "some updated pseudonym",
         "survey_id" => 43,
         "user_id" => 43,
-        "survey_answers" =>  "new_json"}
+        "survey_answers" => %{"Quality" => %{"affordable" => 2}}}
     end
 
     test "renders errors when data is invalid", %{conn: conn, answer: answer} do

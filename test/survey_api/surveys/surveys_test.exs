@@ -68,9 +68,9 @@ defmodule SurveyAPI.SurveysTest do
   describe "surveys" do
     alias SurveyAPI.Surveys.Survey
 
-    @valid_attrs %{name: "some name", survey_design: "some survey_design", survey_id: 42}
-    @update_attrs %{name: "some updated name", survey_design: "some updated survey_design", survey_id: 43}
-    @invalid_attrs %{name: nil, survey_design: nil, survey_id: nil}
+    @valid_attrs %{name: "some name", survey_id: 42}
+    @update_attrs %{name: "some updated name", survey_id: 43}
+    @invalid_attrs %{name: nil, survey_id: nil}
 
     def survey_fixture(attrs \\ %{}) do
       {:ok, survey} =
@@ -94,7 +94,6 @@ defmodule SurveyAPI.SurveysTest do
     test "create_survey/1 with valid data creates a survey" do
       assert {:ok, %Survey{} = survey} = Surveys.create_survey(@valid_attrs)
       assert survey.name == "some name"
-      assert survey.survey_design == "some survey_design"
       assert survey.survey_id == 42
     end
 
@@ -107,7 +106,6 @@ defmodule SurveyAPI.SurveysTest do
       assert {:ok, survey} = Surveys.update_survey(survey, @update_attrs)
       assert %Survey{} = survey
       assert survey.name == "some updated name"
-      assert survey.survey_design == "some updated survey_design"
       assert survey.survey_id == 43
     end
 
