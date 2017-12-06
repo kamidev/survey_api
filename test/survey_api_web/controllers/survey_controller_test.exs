@@ -4,6 +4,8 @@ defmodule SurveyAPIWeb.SurveyControllerTest do
   alias SurveyAPI.Surveys
   alias SurveyAPI.Surveys.Survey
 
+  # Note that there are no tests for JSONB field "survey_design"
+  # This is currently not not a supported use case for the application
   @create_attrs %{name: "some name", survey_id: 42}
   @update_attrs %{name: "some updated name", survey_id: 43}
   @invalid_attrs %{name: nil, survey_id: nil}
