@@ -9,3 +9,9 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+# questions = ""
+
+# data = %{"title" => "Sharing Cities Seeded Survey", "showProgressBar" => "top", "pages" => [%{"questions": questions}]}
+# SurveyAPI.Repo.insert!(%SurveyAPI.Surveys.Survey{name: "Sample seed survey",survey_design: data, survey_id: 1})
+
