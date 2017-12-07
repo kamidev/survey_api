@@ -34,7 +34,9 @@ environment :dev do
 end
 
 environment :prod do
-  set include_erts: true
+  # set include_erts: true
+  set include_erts: "/Users/jonas/.asdf/installs/erlang/20.1/lib/erlang"
+  # set include_erts: "/Users/jonas/vue/survey/survey_api/Erlang"
   set include_src: false
   set cookie: :"eSx(SHoOnz:a0/1wDLTRRTh%QUR/2N1r7Ry5:tJlpv4r>P4g|Bwq~SQdOMH(A3.U"
 end
