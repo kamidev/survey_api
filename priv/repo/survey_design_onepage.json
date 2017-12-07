@@ -1,0 +1,51 @@
+{
+    "pages": [{
+        "questions": [{
+            "name": "Quality",
+            "rows": [{
+                "text": "Product is affordable",
+                "value": "affordable"
+            }, {
+                "text": "Product does what it claims",
+                "value": "does what it claims"
+            }],
+            "type": "matrix",
+            "title": "Please agree or disagree with the following statements",
+            "columns": [{
+                "text": "Strongly Disagree",
+                "value": 1
+            }, {
+                "text": "Disagree",
+                "value": 2
+            }, {
+                "text": "Neutral",
+                "value": 3
+            }, {
+                "text": "Agree",
+                "value": 4
+            }, {
+                "text": "Strongly Agree",
+                "value": 5
+            }]
+        }, {
+            "name": "satisfaction",
+            "type": "rating",
+            "title": "How satisfied are you with the Product?",
+            "maximumRateDescription": "Perfect",
+            "mininumRateDescription": "Unsatisfied"
+        }, {
+            "name": "recommend friends",
+            "type": "rating",
+            "title": "Would you recommend the Product to a friend?",
+            "visibleIf": "{satisfaction} > 3",
+            "maximumRateDescription": "I will recommend",
+            "mininumRateDescription": "Will not recommend"
+        }, {
+            "name": "suggestions",
+            "type": "comment",
+            "title": "What would make you more satisfied with the Product?"
+        }]
+    }],
+    "title": "Sharing Cities - Product Survey",
+    "showProgressBar": "top"
+}

@@ -1,0 +1,13 @@
+{
+    "pages": [{
+        "questions": [{
+            "name": "satisfaction",
+            "type": "rating",
+            "title": "How satisfied are you with the Product?",
+            "maximumRateDescription": "Perfect",
+            "mininumRateDescription": "Unsatisfied"
+        }],
+        "title": "Sharing Cities - Product Survey",
+        "showProgressBar": "top"
+    }]
+}
