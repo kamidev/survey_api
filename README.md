@@ -6,7 +6,7 @@ To test locally:
   * Create and migrate your database with `mix ecto.reset`
   * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit the endpoints sith your browser.
+Now you can visit the endpoints with your browser.
 
 [`localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
 
