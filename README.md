@@ -1,14 +1,20 @@
 # SurveyAPI
 
-To start your Phoenix server:
+To test locally:
 
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
+  * Create and migrate your database with `mix ecto.reset`
   * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Now you can visit the endpoints sith your browser.
 
-Ready to run in production? Please [check our deployment guides](http://www.phoenixframework.org/docs/deployment).
+[`localhost:4000`](http://localhost:4000/api/surveys)
+[`localhost:4000`](http://localhost:4000/api/users)
+[`localhost:4000`](http://localhost:4000/api/answers)
+
+For production use, the project is configured to build a release with Distillery. The current strategy is to build a release on the production server and run on localhost:4001. 
+
+Please [check the official deployment guides](http://www.phoenixframework.org/docs/deployment).
 
 ## Learn more
 
