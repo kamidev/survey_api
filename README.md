@@ -1,5 +1,7 @@
 # SurveyAPI
 
+
+
 To test locally:
 
   * Install dependencies with `mix deps.get`
@@ -14,7 +16,9 @@ Now you can visit the endpoints with your browser.
 
 [`localhost:4000/api/answers`](http://localhost:4000/api/answers)
 
-For production use, the project is configured to build a release with Distillery. The current strategy is to build a release on the production server and run on localhost:4001. 
+For production use, the project is configured to build releases with Distillery.
+
+The current strategy is to first install Erlang on the production server, copy the ERTS Erlang runtime files to a development server and build the release there. The resulting binaries then work in production. This process will be documented in greater detail.
 
 Please [check the official deployment guides](http://www.phoenixframework.org/docs/deployment).
 
