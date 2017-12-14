@@ -16,6 +16,8 @@ Now you can visit the endpoints with your browser.
 
 [`localhost:4000/api/answers`](http://localhost:4000/api/answers)
 
+## Installation
+
 For production use, the project is configured to build releases with Distillery. The basic prodecure is outlined here: 
 
 [How to configure and deploy an Elixir app to a VPS](https://www.amberbit.com/blog/2017/7/17/deploy-elixir-app-to-a-vps/).
