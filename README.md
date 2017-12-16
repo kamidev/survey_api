@@ -26,20 +26,30 @@ The basic deployment procedure is described in detail here:
 [How to configure and deploy an Elixir app to a VPS](https://www.amberbit.com/blog/2017/7/17/deploy-elixir-app-to-a-vps/).
 
 
-To build a release, run this in a terminal on your development machine.
+To build a release, use the `mix release` command. But before you do, make sure you have checked your `rel/config.exs` file and understand what's in it. 
+
+Then run this in a terminal on your development machine.
 
 ```shell
 MIX_ENV=dev mix release
 ```
-Then follow the instructions and test your release. If that works, do this on the server
+Follow the instructions and test your release. 
 
 ```shell
-MIX_ENV=dev mix release
 _build/prod/rel/survey_api/bin/survey_api start
+MIX_ENV=dev mix ecto.reset
 ```
-Your service should now be up and running on the configured port (currently: localhost:4001). Note that it does not go up automatically after a server reboot, this must be setup manually.
 
-WARNING! Database migrations are handled automatically on a new release. Currently, they are setup to clean and re-install the database with sample data. Once there is survey data in production, this must be changed.
+When the release is good, make sure the latest code is on the server. Then release like this:
+
+```shell
+MIX_ENV=prod mix release
+_build/prod/rel/survey_api/bin/survey_api start
+MIX_ENV=prod mix ecto.reset
+```
+Your service endpoints should now be up and running on the configured production port (currently: localhost:4001). Note that the service does not come up automatically after a server reboot, this must be setup manually.
+
+WARNING! Database migrations are currently setup to drop and re-load the database with sample data. Once there is actual survey data in production, this MUST be changed.
 
 ## Additional deployment resources 
 
