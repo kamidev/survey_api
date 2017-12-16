@@ -19,7 +19,7 @@ Now you can visit the endpoints with your browser.
 
 For production use, the project is configured to build releases with Distillery. Our current strategy is to install Erlang on the production server and immediately download the resulting runtime binaries to our development machine. This makes it possible to build and test releases both on the production server and on development machines. This also guarantees we won't run into problems if dev prod and dev machines use different operation systems (for instance older versions of Ubuntu, other Linuxes or MacOS). 
 
-Before deploying, make sure there is a file called `config/prod.secret.exs`. This file should not be not under version control, and is used to store sensitive production values, such as the database login. See `config/prod.secret.exs` for detailed info about what should go there. 
+Before deploying, make sure there is a file called `config/prod.secret.exs`. This file should not be not under version control, and is used to store sensitive production values, such as the database login. See `config/prod.exs` for detailed info about what should go there. 
 
 The basic deployment procedure is described in detail here: 
 
