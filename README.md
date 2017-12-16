@@ -4,7 +4,7 @@
 
 ### Erlang and Elixir
 
-This API is developed using the Elixir and depends on the Erlang/OTP runtime being installed. 
+This API is developed using Elixir and depends on the Erlang/OTP runtime being installed. 
 
 For Sharing Cities, we use [asdf](https://github.com/asdf-vm/asdf) to install and manage Erlang and Elixir. The versions we currently use for this project are specified in the file `.tool-versions`.
 
