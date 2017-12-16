@@ -31,7 +31,7 @@ defmodule SurveyAPI.Repo.Migrations.AddSample2 do
              },
              {
               "type": "radiogroup",
-              "name": "followup",
+              "name": "satisfaction_followup",
               "visible": false,
               "visibleIf": "{satisfaction} > 3",
               "title": {
@@ -39,13 +39,13 @@ defmodule SurveyAPI.Repo.Migrations.AddSample2 do
               },
               "choices": [
                {
-                "value": "item1",
+                "value": "yes",
                 "text": {
                  "sv": "Jajamensan!"
                 }
                },
                {
-                "value": "item2",
+                "value": "maybe",
                 "text": {
                  "sv": "Vi får väl se..."
                 }
@@ -69,19 +69,19 @@ defmodule SurveyAPI.Repo.Migrations.AddSample2 do
                 },
                 "choices": [
                  {
-                  "value": "item1",
+                  "value": "denmark",
                   "text": {
                    "sv": "Danmark"
                   }
                  },
                  {
-                  "value": "item2",
+                  "value": "other_eu_country",
                   "text": {
                    "sv": "Något annat EU-land"
                   }
                  },
                  {
-                  "value": "item3",
+                  "value": "outside_europe",
                   "text": {
                    "sv": "Utanför Europa"
                   }
@@ -100,7 +100,7 @@ defmodule SurveyAPI.Repo.Migrations.AddSample2 do
                 "type": "radiogroup",
                 "name": "try_new_things",
                 "title": {
-                 "default": "Compared to our competitors, do you feel the Product is",
+                 "default": "How interested are you in trying new things?",
                  "sv": "Hur intresserad är du av att pröva nya saker?"
                 },
                 "choices": [
@@ -125,8 +125,8 @@ defmodule SurveyAPI.Repo.Migrations.AddSample2 do
               "elements": [
                {
                 "type": "matrix",
-                "name": "priority",
-                "title": "Vilken aktivitet tycker du är högst prioriterad i de olika faserna?",
+                "name": "prioritized_activity",
+                "title": "Välj högst prioriterade aktivitet",
                 "columns": [
                  {
                   "value": 1,
@@ -144,15 +144,15 @@ defmodule SurveyAPI.Repo.Migrations.AddSample2 do
                 "rows": [
                  {
                   "value": "funding",
-                  "text": "Finansiering"
+                  "text": "Vad är viktigast under finansiseringsfasen?"
                  },
                  {
                   "value": "study",
-                  "text": "Förstudie"
+                  "text": "Vad är viktigast för en förstudie?"
                  },
                  {
                   "value": "prototyp",
-                  "text": "Prototyp"
+                  "text": "Vad är viktigast vid prototyputveckling?"
                  }
                 ]
                }
