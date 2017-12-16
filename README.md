@@ -1,5 +1,33 @@
 # SurveyAPI
 
+## Prerequisites
+
+### Erlang and Elixir
+
+This API is developed using the Elixir and depends on the Erlang/OTP runtime being installed. 
+
+For Sharing Cities, we use [asdf](https://github.com/asdf-vm/asdf) to install and manage Erlang and Elixir. The versions we currently use for this project are specified in the file `.tool-versions`.
+
+Check your installation by running the command `iex`. You should see very similar to this
+```shell
+Erlang/OTP 20 [erts-9.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false]
+
+Interactive Elixir (1.5.2) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)>
+```
+
+### Phoenix
+
+Install the latest version of the Elixir web framework Phoenix: 
+
+```shell
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
+```
+And make sure the Elixir package manager is installed:
+
+```shell
+mix local.hex
+```
 
 ## Install locally and test
 
