@@ -10,7 +10,7 @@ The API is developed using Elixir and depends on the Erlang/OTP runtime being in
 
 For Sharing Citiesd, we use the [asdf version manager](https://github.com/asdf-vm/asdf) to manage Erlang and Elixir. The current versions are specified in the file `.tool-versions`.
 
-Check your installation by running the command `iex`. The result shoudl be very similar to this
+Check your installation by running the command `iex`. The result should be very similar to this
 ```shell
 Erlang/OTP 20 [erts-9.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false]
 
@@ -22,7 +22,7 @@ iex(1)>
 
 Make sure Postgres 9.6 or later is installed. 
 
-You must hav a database user with permission to create databases. On a dev machine it is convenient to use th `postgres` user with password `postgres`. 
+You must have a database user with permission to create databases. On a dev machine it is convenient to use the `postgres` user with password `postgres`. 
 
 For produktion use, this is dangerous and you should pick something else.
 
