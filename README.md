@@ -23,17 +23,30 @@ Install the latest version of the Elixir web framework Phoenix:
 ```shell
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 ```
-And make sure the Elixir package manager is installed:
+Make sure the Elixir package manager is installed:
 
 ```shell
 mix local.hex
 ```
 
-## Install locally and test
+## Install and test on dev machine
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.reset`
-  * Start Phoenix endpoint with `mix phx.server`
+```shell
+  git clone https://github.com/kamidev/survey_api.git
+  cd survey_api
+  ```
+  Install dependencies
+  ```shell
+  mix deps.get
+  ```
+  Create and migrate your database
+  ```shell
+  mix ecto.reset
+  ```
+ Start Phoenix endpoint with
+ ```shell
+ iex -S mix phx.server
+```
 
 Now you can visit the endpoints with your browser.
 
