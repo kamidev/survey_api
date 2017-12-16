@@ -1,14 +1,16 @@
 # SurveyAPI
 
+This is an API used by the Sharing Cites survey web application. See https://github.com/kamidev/survey_frontend. 
+
 ## Prerequisites
 
 ### Erlang and Elixir
 
-This API is developed using Elixir and depends on the Erlang/OTP runtime being installed. 
+The API is developed using Elixir and depends on the Erlang/OTP runtime being installed. 
 
-For Sharing Cities, we use [asdf](https://github.com/asdf-vm/asdf) to install and manage Erlang and Elixir. The versions we currently use for this project are specified in the file `.tool-versions`.
+For Sharing Citiesd, we use the [asdf version manager](https://github.com/asdf-vm/asdf) to manage Erlang and Elixir. The current versions are specified in the file `.tool-versions`.
 
-Check your installation by running the command `iex`. You should see very similar to this
+Check your installation by running the command `iex`. The result shoudl be very similar to this
 ```shell
 Erlang/OTP 20 [erts-9.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false]
 
@@ -16,21 +18,30 @@ Interactive Elixir (1.5.2) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)>
 ```
 
+### Postgres
+
+Make sure Postgres 9.6 or later is installed. 
+
+You must hav a database user with permission to create databases. On a dev machine it is convenient to use th `postgres` user with password `postgres`. 
+
+For produktion use, this is dangerous and you should pick something else.
+
 ### Phoenix
 
-Install the latest version of the Elixir web framework Phoenix: 
+Install the latest version of Phoenix.
 
 ```shell
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 ```
-Make sure the Elixir package manager is installed:
+Install the latest version of the Elixir package manager.
 
 ```shell
 mix local.hex
 ```
 
-## Install and test on dev machine
+## Test installation on development machine
 
+Clone this repository somewhere on your dev machine
 ```shell
   git clone https://github.com/kamidev/survey_api.git
   cd survey_api
@@ -39,7 +50,7 @@ mix local.hex
   ```shell
   mix deps.get
   ```
-  Create and migrate your database
+  Wipe the dev database clean and load some sample data
   ```shell
   mix ecto.reset
   ```
@@ -48,13 +59,15 @@ mix local.hex
  iex -S mix phx.server
 ```
 
-Now you can visit the endpoints with your browser.
+Now visit the API endpoints with your browser:
 
 [`localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
 
 [`localhost:4000/api/users`](http://localhost:4000/api/users)
 
 [`localhost:4000/api/answers`](http://localhost:4000/api/answers)
+
+Surveys should return sample JSON data. The others should return `{"data":[]}`.
 
 ## Deployment
 
