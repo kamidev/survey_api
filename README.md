@@ -15,7 +15,7 @@ Now you can visit the endpoints with your browser.
 
 [`localhost:4000/api/answers`](http://localhost:4000/api/answers)
 
-## Installation
+## Deployment
 
 For production use, the project is configured to build releases with Distillery. Our current strategy is to install Erlang on the production server and immediately download the resulting runtime binaries to our development machine. This makes it possible to build and test releases both on the production server and on development machines. This also guarantees we won't run into problems if dev prod and dev machines use different operation systems (for instance older versions of Ubuntu, other Linuxes or MacOS). 
 
