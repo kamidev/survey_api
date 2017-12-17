@@ -1,6 +1,10 @@
 # SurveyAPI
 
-This is an API used by the Sharing Cites survey web application. See https://github.com/kamidev/survey_frontend. 
+This is the Elixir/Phoenix API for the Sharing Cites Survey web application. See: https://github.com/kamidev/survey_frontend. 
+
+The starting point for this project was Phoenix 1.3 API generators. [This blog post](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) gives a step-by-step description of how to use them. 
+
+In the official Phoenix documentation there is an [interesting discusssion](https://hexdocs.pm/phoenix/contexts.html) about why and when you should use generators.
 
 ## Prerequisites
 
@@ -8,7 +12,7 @@ This is an API used by the Sharing Cites survey web application. See https://git
 
 The API is developed using Elixir and depends on the Erlang/OTP runtime being installed. 
 
-For Sharing Citiesd, we use the [asdf version manager](https://github.com/asdf-vm/asdf) to manage Erlang and Elixir. The current versions are specified in the file `.tool-versions`.
+For Sharing Cities, we use the [asdf version manager](https://github.com/asdf-vm/asdf) to install and manage Erlang and Elixir. The current versions for this project can be found in the file `.tool-versions`. Make sure you have those versions installed.
 
 Check your installation by running the command `iex`. The result should be very similar to this
 ```shell
@@ -22,7 +26,7 @@ iex(1)>
 
 Make sure Postgres 9.6 or later is installed. 
 
-You must have a database user with permission to create databases. On a dev machine it is convenient to use the `postgres` user with password `postgres`. 
+You must have a database user with permission to create databases. On a development machine it is convenient to use the `postgres` user with password `postgres`, since this is the default used by all new Elixir projects.
 
 For produktion use, this is dangerous and you should pick something else.
 
@@ -33,7 +37,7 @@ Install the latest version of Phoenix.
 ```shell
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 ```
-Install the latest version of the Elixir package manager.
+Make sure you have the latest version of the Elixir package manager.
 
 ```shell
 mix local.hex
@@ -71,16 +75,15 @@ Surveys should return sample JSON data. The others should return `{"data":[]}`.
 
 ## Deployment
 
-For production use, the project is configured to build releases with Distillery. Our current strategy is to install Erlang on the production server and immediately download the resulting runtime binaries to our development machine. This makes it possible to build and test releases both on the production server and on development machines. This also guarantees we won't run into problems if dev prod and dev machines use different operation systems (for instance older versions of Ubuntu, other Linuxes or MacOS). 
+For production use, the project is configured to build releases with [Distillery](https://github.com/bitwalker/distillery). Our current strategy is to install Erlang on the production server and immediately download the resulting runtime binaries to our development machine. This makes it possible to build and test releases both on the production server and on development machines. This also guarantees we won't run into problems if dev prod and dev machines use different operation systems (for instance older versions of Ubuntu, other Linuxes or MacOS). 
 
-Before deploying, make sure there is a file called `config/prod.secret.exs`. This file should not be not under version control, and is used to store sensitive production values, such as the database login. See `config/prod.exs` for detailed info about what should go there. 
-
-The basic deployment procedure is described in detail here: 
+The basic deployment procedure we use is described in detail here: 
 
 [How to configure and deploy an Elixir app to a VPS](https://www.amberbit.com/blog/2017/7/17/deploy-elixir-app-to-a-vps/).
 
+Before deploying, make sure there is a file called `config/prod.secret.exs`. This file should not be not under version control, and is used to store sensitive production values, such as the database login. See `config/prod.exs` for detailed info about what should go there. 
 
-To build a release, use the `mix release` command. But before you do, make sure you have checked your `rel/config.exs` file and understand what's in it. 
+To build a release, use the `mix release` command. Before you do, make sure you have checked your `rel/config.exs` file and understand what runtime will be used for building.
 
 Then run this in a terminal on your development machine.
 
@@ -93,17 +96,18 @@ Follow the instructions and test your release.
 _build/prod/rel/survey_api/bin/survey_api start
 MIX_ENV=dev mix ecto.reset
 ```
+Your development endpoints will be on localhost:40000. When the release is good enough for production, make sure the latest code is pushed to the server. 
 
-When the release is good, make sure the latest code is on the server. Then release like this:
+On the server, this will deploy a new release:
 
 ```shell
 MIX_ENV=prod mix release
 _build/prod/rel/survey_api/bin/survey_api start
 MIX_ENV=prod mix ecto.reset
 ```
-Your service endpoints should now be up and running on the configured production port (currently: localhost:4001). Note that the service does not come up automatically after a server reboot, this must be setup manually.
+WARNING! `mix ecto.reset` drops the database and re-loads sample data. If survey data already is already in production, you should NOT use this command for data migration.
 
-WARNING! Database migrations are currently setup to drop and re-load the database with sample data. Once there is actual survey data in production, this MUST be changed.
+Your endpoints should now be up and running on the configured production port (currently: localhost:4001). Note that the service does not come up automatically after a server reboot, this should be setup manually.
 
 ## Additional deployment resources 
 
@@ -115,9 +119,9 @@ Below is more info about building releases. Note that we currently don't use Ede
 
 [The official Phoenix deployment guides](http://www.phoenixframework.org/docs/deployment).
 
-## Learn more about Phoenix
+### Official Phoenix resources
 
-  * Official website: http://www.phoenixframework.org/
+  * Website: http://www.phoenixframework.org/
   * Guides: http://phoenixframework.org/docs/overview
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
