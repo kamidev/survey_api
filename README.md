@@ -73,7 +73,7 @@ Now visit the API endpoints with your browser:
 
 Surveys should return sample JSON data. The others should return `{"data":[]}`.
 
-## Deployment
+## Building releases and deploying
 
 For production use, the project is configured to build releases with [Distillery](https://github.com/bitwalker/distillery). Our current strategy is to install Erlang on the production server and immediately download the resulting runtime binaries to our development machine. This makes it possible to build and test releases both on the production server and on development machines. This also guarantees we won't run into problems if dev prod and dev machines use different operation systems (for instance older versions of Ubuntu, other Linuxes or MacOS). 
 
@@ -83,41 +83,41 @@ The basic deployment procedure we use is described in detail here:
 
 Before deploying, make sure there is a file called `config/prod.secret.exs`. This file should not be not under version control, and is used to store sensitive production values, such as the database login. See `config/prod.exs` for detailed info about what should go there. 
 
-To build a release, use the `mix release` command. Before you do, make sure you have checked your `rel/config.exs` file and understand what runtime will be used for building.
-
-Then run this in a terminal on your development machine.
+To build a release, use the `mix release` command. Before you do, make sure you have checked your `rel/config.exs` file and understand what runtime will be used for building. Then run this in a terminal on your development machine:
 
 ```shell
 MIX_ENV=dev mix release
-```
-Follow the instructions and test your release. 
-
-```shell
-_build/prod/rel/survey_api/bin/survey_api start
+_build/dev/rel/survey_api/bin/survey_api start
 MIX_ENV=dev mix ecto.reset
 ```
-Your development endpoints will be on localhost:40000. When the release is good enough for production, make sure the latest code is pushed to the server. 
+Follow the instructions and test your release. The development endpoints should be on `localhost:4000`. When the release is good enough for production, make sure the latest code is pushed to the server.
 
-On the server, this will deploy a new release:
+## Deploying a new release to production
+
+Production endpoints are currently configured to run on `localhost:4001`. On the server, use this to deploy a completely new release:
 
 ```shell
 MIX_ENV=prod mix release
 _build/prod/rel/survey_api/bin/survey_api start
-MIX_ENV=prod mix ecto.reset
 ```
-WARNING! `mix ecto.reset` drops the database and re-loads sample data. If survey data already is already in production, you should NOT use this command for data migration.
+Note that the service does not come up automatically after a server reboot. Manage this the same way other services are managed on the production server.
 
-Your endpoints should now be up and running on the configured production port (currently: localhost:4001). Note that the service does not come up automatically after a server reboot, this should be setup manually.
+WARNING! `mix ecto.reset` will drop the database and re-load the sample survey. If real survey data is already in production you should NOT do that. Instead, generate specific Ecto data migrations to update the database.
 
 ## Additional deployment resources 
 
-Below is more info about building releases. Note that we currently don't use Edeliver to fully automate the release process.
+Below are more resources about building and managing releases. You should read the first three before attempting to upgrade a production server.
+
+[Mastering Elixir Releases with Distillery — A (Pretty) Complete Guide](https://hackernoon.com/mastering-elixir-releases-with-distillery-a-pretty-complete-guide-497546f298bc)
+
+[The official Phoenix deployment guides](http://www.phoenixframework.org/docs/deployment)
 
 [Using Distillery With Phoenix](https://hexdocs.pm/distillery/use-with-phoenix.html)
 
+Note that we currently do not use Edeliver to fully automate the release process. For frequent updates and/or multiple servers, this is worth looking into.
+
 [How To Automate Elixir-Phoenix Deployment with Distillery and edeliver on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-automate-elixir-phoenix-deployment-with-distillery-and-edeliver-on-ubuntu-16-04).
 
-[The official Phoenix deployment guides](http://www.phoenixframework.org/docs/deployment).
 
 ### Official Phoenix resources
 
