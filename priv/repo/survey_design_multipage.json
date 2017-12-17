@@ -1,40 +1,201 @@
 {
-    "title": "Sharing Cities Database survey",
-    "showProgressBar": "top",
+    "locale": "sv",
     "pages": [{
-            "questions": [{
-                    "name": "Quality",
-                    "rows": [
-                        { "text": "Product is affordable", "value": "affordable" },
-                        { "text": "Product does what it claims", "value": "does what it claims" },
-                        { "text": "Product is better than other products on the market", "value": "better then others" },
-                        { "text": "Product is easy to use", "value": "easy to use" }
-                    ],
-                    "columns": [{ "text": "Strongly Disagree", "value": 1 }, { "text": "Disagree", "value": 2 },
-                        { "text": "Neutral", "value": 3 }, { "text": "Agree", "value": 4 }, { "text": "Strongly Agree", "value": 5 }
-                    ]
+            "name": "page1",
+            "elements": [{
+                    "type": "rating",
+                    "name": "satisfaction",
+                    "title": {
+                        "default": "How satisfied are you with the Product?",
+                        "sv": "Hur ligger vi till?"
+                    },
+                    "minRateDescription": {
+                        "default": "Not Satisfied",
+                        "sv": "Botten"
+                    },
+                    "maxRateDescription": {
+                        "default": "Completely satisfied",
+                        "sv": "Toppen"
+                    }
                 },
-                { "name": "satisfaction", "type": "rating", "title": "How satisfied are you with the Product?", "maximumRateDescription": "Completely satisfied", "mininumRateDescription": "Not Satisfied" },
-                { "name": "recommend friends", "type": "rating", "title": "How likely are you to recommend the Product to a friend or co-worker?", "visibleIf": "{satisfaction} > 3", "maximumRateDescription": "I will recommend", "mininumRateDescription": "Will not recommend" },
-                { "name": "suggestions", "type": "comment", "title": "What would make you more satisfied with the Product?" }
-            ]
-        },
-        {
-            "questions": [
-                { "name": "price to competitors", "type": "radiogroup", "title": "Compared to our competitors, do you feel the Product is", "choices": ["Less expensive", "Priced about the same", "More expensive", "Not sure"] },
-                { "name": "price", "type": "radiogroup", "title": "Do you feel our current price is merited by our product?", "choices": ["correct|Yes, the price is about right", "low|No, the price is too low for your product", "high|No, the price is too high for your product"] },
                 {
-                    "name": "pricelimit",
-                    "type": "multipletext",
-                    "items": [{ "name": "mostamount", "title": "Most amount you would every pay for a product like ours" },
-                        { "name": "leastamount", "title": "The least amount you would feel comfortable paying" }
-                    ],
-                    "title": "What is the... "
+                    "type": "radiogroup",
+                    "name": "satisfaction_followup",
+                    "visible": false,
+                    "visibleIf": "{satisfaction} > 3",
+                    "title": {
+                        "sv": "Så vi är på rätt väg?"
+                    },
+                    "choices": [{
+                            "value": "yes",
+                            "text": {
+                                "sv": "Jajamensan!"
+                            }
+                        },
+                        {
+                            "value": "maybe",
+                            "text": {
+                                "sv": "Vi får väl se..."
+                            }
+                        }
+                    ]
                 }
             ]
         },
         {
-            "questions": [{ "name": "email", "type": "text", "title": "Thank you for taking our survey. Please enter your z" }]
+            "name": "page2",
+            "elements": [{
+                "type": "panel",
+                "name": "personal",
+                "elements": [{
+                        "type": "checkbox",
+                        "name": "visited_places",
+                        "title": {
+                            "sv": "Reser du regelbundet till någon/några av dessa platser?"
+                        },
+                        "choices": [{
+                                "value": "denmark",
+                                "text": {
+                                    "sv": "Danmark"
+                                }
+                            },
+                            {
+                                "value": "other_eu_country",
+                                "text": {
+                                    "sv": "Något annat EU-land"
+                                }
+                            },
+                            {
+                                "value": "outside_europe",
+                                "text": {
+                                    "sv": "Utanför Europa"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "name": "favorite_color",
+                        "title": {
+                            "sv": "Vilken är din favoritfärg?"
+                        },
+                        "inputType": "color"
+                    },
+                    {
+                        "type": "radiogroup",
+                        "name": "try_new_things",
+                        "title": {
+                            "default": "How interested are you in trying new things?",
+                            "sv": "Hur intresserad är du av att pröva nya saker?"
+                        },
+                        "choices": [
+                            "Vill helst ha det som vanligt",
+                            "Beror på vad det är",
+                            "Aldrig samma sak två gånger!"
+                        ]
+                    }
+                ],
+                "title": {
+                    "sv": "Lite om dig"
+                }
+            }]
+        },
+        {
+            "name": "page3",
+            "elements": [{
+                "type": "panel",
+                "name": "planning",
+                "elements": [{
+                    "type": "matrix",
+                    "name": "prioritized_activity",
+                    "title": "Välj högst prioriterade aktivitet",
+                    "columns": [{
+                            "value": 1,
+                            "text": "Överdrifter"
+                        },
+                        {
+                            "value": 2,
+                            "text": "Fusk"
+                        },
+                        {
+                            "value": 3,
+                            "text": "Personalfest"
+                        }
+                    ],
+                    "rows": [{
+                            "value": "funding",
+                            "text": "Vad är viktigast under finansiseringsfasen?"
+                        },
+                        {
+                            "value": "study",
+                            "text": "Vad är viktigast för en förstudie?"
+                        },
+                        {
+                            "value": "prototyp",
+                            "text": "Vad är viktigast vid prototyputveckling?"
+                        }
+                    ]
+                }],
+                "title": {
+                    "sv": "Planering"
+                }
+            }]
+        },
+        {
+            "name": "page4",
+            "elements": [{
+                "type": "panel",
+                "name": "exit",
+                "elements": [{
+                        "type": "comment",
+                        "name": "comments",
+                        "title": {
+                            "sv": "Finns det något du skulle vilja tillägga?"
+                        }
+                    },
+                    {
+                        "type": "radiogroup",
+                        "name": "want_followup",
+                        "title": {
+                            "sv": "Hur vill du skicka in dina svar?"
+                        },
+                        "isRequired": true,
+                        "choices": [{
+                                "value": true,
+                                "text": {
+                                    "sv": "ange din unika pseudonym"
+                                }
+                            },
+                            {
+                                "value": false,
+                                "text": {
+                                    "sv": "anonymt"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "text",
+                        "name": "pseudonym",
+                        "visible": false,
+                        "visibleIf": "{want_followup} = true",
+                        "startWithNewLine": false,
+                        "title": {
+                            "sv": "Ange din pseudonym"
+                        },
+                        "defaultValue": "anonymous",
+                        "isRequired": true,
+                        "placeHolder": {
+                            "sv": "Ange din pseudonym"
+                        }
+                    }
+                ],
+                "title": {
+                    "sv": "Uppföljning"
+                }
+            }]
         }
-    ]
+    ],
+    "showProgressBar": "top",
+    "title": "Sharing Cities testenkät"
 }

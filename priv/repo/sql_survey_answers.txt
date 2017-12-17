@@ -1,0 +1,21 @@
+ SELECT 
+"public"."answers"."survey_id",
+"public"."answers".survey_answers->>'want_followup' AS consent,
+"public"."answers".survey_answers->>'pseudonym' AS pseudonym,
+"public"."answers".survey_answers->>'satisfaction' AS satisfaction,
+"public"."answers".survey_answers->>'satisfaction_followup' AS satisfied_followup,
+"public"."answers".survey_answers->>'visited_places'as visited_places,
+"public"."answers".survey_answers#>>'{prioritized_activity,study}' as study,
+"public"."answers".survey_answers#>>'{prioritized_activity,funding}' as funding,
+"public"."answers".survey_answers#>>'{prioritized_activity,prototyp}' as prototyp,
+"public"."answers".survey_answers->>'try_new_things' AS curiosity,
+"public"."answers".survey_answers->>'favorite_color' AS favorite_color,
+"public"."answers".survey_answers->>'comments' AS comments
+FROM     "public"."answers"
+
+where survey_answers->>'visited_places' = '["other_eu_country"]';
+where survey_answers->>'visited_places' IS NOT NULL
+where  survey_answers#>>'{prioritized_activity,study}' = '2';
+where  survey_answers->>'favorite_color' = '#932092';
+where survey_answers->>'visited_places' = '["other_eu_country", "outside_europe"]';
+where survey_answers->>'visited_places' = '["other_eu_country", "denmark"]';
