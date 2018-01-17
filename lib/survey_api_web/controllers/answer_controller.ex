@@ -4,7 +4,7 @@ defmodule SurveyAPIWeb.AnswerController do
   alias SurveyAPI.Answers
   alias SurveyAPI.Answers.Answer
 
-  action_fallback SurveyAPIWeb.FallbackController
+  action_fallback(SurveyAPIWeb.FallbackController)
 
   def index(conn, _params) do
     answers = Answers.list_answers()
@@ -35,6 +35,7 @@ defmodule SurveyAPIWeb.AnswerController do
 
   def delete(conn, %{"id" => id}) do
     answer = Answers.get_answer!(id)
+
     with {:ok, %Answer{}} <- Answers.delete_answer(answer) do
       send_resp(conn, :no_content, "")
     end

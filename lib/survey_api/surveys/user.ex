@@ -3,10 +3,9 @@ defmodule SurveyAPI.Surveys.User do
   import Ecto.Changeset
   alias SurveyAPI.Surveys.User
 
-
   schema "users" do
-    field :pseudonym, :string
-    field :user_id, :integer
+    field(:pseudonym, :string)
+    field(:user_id, :integer)
 
     timestamps()
   end

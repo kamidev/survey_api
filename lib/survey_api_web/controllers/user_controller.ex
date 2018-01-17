@@ -4,7 +4,7 @@ defmodule SurveyAPIWeb.UserController do
   alias SurveyAPI.Surveys
   alias SurveyAPI.Surveys.User
 
-  action_fallback SurveyAPIWeb.FallbackController
+  action_fallback(SurveyAPIWeb.FallbackController)
 
   def index(conn, _params) do
     users = Surveys.list_users()
@@ -35,6 +35,7 @@ defmodule SurveyAPIWeb.UserController do
 
   def delete(conn, %{"id" => id}) do
     user = Surveys.get_user!(id)
+
     with {:ok, %User{}} <- Surveys.delete_user(user) do
       send_resp(conn, :no_content, "")
     end

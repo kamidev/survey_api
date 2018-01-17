@@ -11,7 +11,7 @@ defmodule SurveyAPI.Application do
       # Start the Ecto repository
       supervisor(SurveyAPI.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(SurveyAPIWeb.Endpoint, []),
+      supervisor(SurveyAPIWeb.Endpoint, [])
       # Start your own worker by calling: SurveyAPI.Worker.start_link(arg1, arg2, arg3)
       # worker(SurveyAPI.Worker, [arg1, arg2, arg3]),
     ]

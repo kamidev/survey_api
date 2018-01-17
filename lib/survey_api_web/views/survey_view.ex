@@ -11,9 +11,11 @@ defmodule SurveyAPIWeb.SurveyView do
   end
 
   def render("survey.json", %{survey: survey}) do
-    %{id: survey.id,
+    %{
+      id: survey.id,
       name: survey.name,
       survey_id: survey.survey_id,
-      survey_design: survey.survey_design}
+      survey_design: survey.survey_design
+    }
   end
 end

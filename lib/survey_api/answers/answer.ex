@@ -3,12 +3,11 @@ defmodule SurveyAPI.Answers.Answer do
   import Ecto.Changeset
   alias SurveyAPI.Answers.Answer
 
-
   schema "answers" do
-    field :pseudonym, :string
-    field :survey_id, :integer
-    field :user_id, :integer
-    field :survey_answers, :map, default: "{}"
+    field(:pseudonym, :string)
+    field(:survey_id, :integer)
+    field(:user_id, :integer)
+    field(:survey_answers, :map, default: "{}")
 
     timestamps()
   end
