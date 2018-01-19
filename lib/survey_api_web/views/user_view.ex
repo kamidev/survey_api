@@ -11,8 +11,6 @@ defmodule SurveyAPIWeb.UserView do
   end
 
   def render("user.json", %{user: user}) do
-    %{id: user.id,
-      pseudonym: user.pseudonym,
-      user_id: user.user_id}
+    %{id: user.id, pseudonym: user.pseudonym, user_id: user.user_id}
   end
 end

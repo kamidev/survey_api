@@ -6,8 +6,18 @@ defmodule SurveyAPI.AnswersTest do
   describe "answers" do
     alias SurveyAPI.Answers.Answer
 
-    @valid_attrs %{pseudonym: "some pseudonym", survey_id: 42, user_id: 42, survey_answers:  %{"Quality" => %{"affordable" => 2}}}
-    @update_attrs %{pseudonym: "some updated pseudonym", survey_id: 43, user_id: 43, survey_answers:  %{"Quality" => %{"affordable" => 2}}}
+    @valid_attrs %{
+      pseudonym: "some pseudonym",
+      survey_id: 42,
+      user_id: 42,
+      survey_answers: %{"Quality" => %{"affordable" => 2}}
+    }
+    @update_attrs %{
+      pseudonym: "some updated pseudonym",
+      survey_id: 43,
+      user_id: 43,
+      survey_answers: %{"Quality" => %{"affordable" => 2}}
+    }
     @invalid_attrs %{pseudonym: nil, survey_id: nil, user_id: nil}
 
     def answer_fixture(attrs \\ %{}) do
@@ -33,7 +43,7 @@ defmodule SurveyAPI.AnswersTest do
       assert {:ok, %Answer{} = answer} = Answers.create_answer(@valid_attrs)
       assert answer.pseudonym == "some pseudonym"
       assert answer.survey_id == 42
-      assert answer.survey_answers ==  %{"Quality" => %{"affordable" => 2}}
+      assert answer.survey_answers == %{"Quality" => %{"affordable" => 2}}
       assert answer.user_id == 42
     end
 
@@ -46,7 +56,7 @@ defmodule SurveyAPI.AnswersTest do
       assert {:ok, answer} = Answers.update_answer(answer, @update_attrs)
       assert %Answer{} = answer
       assert answer.pseudonym == "some updated pseudonym"
-      assert answer.survey_answers ==  %{"Quality" => %{"affordable" => 2}}
+      assert answer.survey_answers == %{"Quality" => %{"affordable" => 2}}
       assert answer.survey_id == 43
       assert answer.user_id == 43
     end

@@ -21,26 +21,28 @@ defmodule SurveyAPIWeb.SurveyControllerTest do
 
   describe "index" do
     test "lists all surveys", %{conn: conn} do
-      conn = get conn, survey_path(conn, :index)
+      conn = get(conn, survey_path(conn, :index))
       assert json_response(conn, 200)["data"] == []
     end
   end
 
   describe "create survey" do
     test "renders survey when data is valid", %{conn: conn} do
-      conn = post conn, survey_path(conn, :create), survey: @create_attrs
+      conn = post(conn, survey_path(conn, :create), survey: @create_attrs)
       assert %{"id" => id} = json_response(conn, 201)["data"]
 
-      conn = get conn, survey_path(conn, :show, id)
+      conn = get(conn, survey_path(conn, :show, id))
+
       assert json_response(conn, 200)["data"] == %{
-        "id" => id,
-        "name" => "some name",
-        "survey_id" => 42,
-        "survey_design" => nil}
+               "id" => id,
+               "name" => "some name",
+               "survey_id" => 42,
+               "survey_design" => nil
+             }
     end
 
     test "renders errors when data is invalid", %{conn: conn} do
-      conn = post conn, survey_path(conn, :create), survey: @invalid_attrs
+      conn = post(conn, survey_path(conn, :create), survey: @invalid_attrs)
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -49,19 +51,21 @@ defmodule SurveyAPIWeb.SurveyControllerTest do
     setup [:create_survey]
 
     test "renders survey when data is valid", %{conn: conn, survey: %Survey{id: id} = survey} do
-      conn = put conn, survey_path(conn, :update, survey), survey: @update_attrs
+      conn = put(conn, survey_path(conn, :update, survey), survey: @update_attrs)
       assert %{"id" => ^id} = json_response(conn, 200)["data"]
 
-      conn = get conn, survey_path(conn, :show, id)
+      conn = get(conn, survey_path(conn, :show, id))
+
       assert json_response(conn, 200)["data"] == %{
-        "id" => id,
-        "name" => "some updated name",
-        "survey_id" => 43,
-        "survey_design" => nil}
+               "id" => id,
+               "name" => "some updated name",
+               "survey_id" => 43,
+               "survey_design" => nil
+             }
     end
 
     test "renders errors when data is invalid", %{conn: conn, survey: survey} do
-      conn = put conn, survey_path(conn, :update, survey), survey: @invalid_attrs
+      conn = put(conn, survey_path(conn, :update, survey), survey: @invalid_attrs)
       assert json_response(conn, 422)["errors"] != %{}
     end
   end
@@ -70,11 +74,12 @@ defmodule SurveyAPIWeb.SurveyControllerTest do
     setup [:create_survey]
 
     test "deletes chosen survey", %{conn: conn, survey: survey} do
-      conn = delete conn, survey_path(conn, :delete, survey)
+      conn = delete(conn, survey_path(conn, :delete, survey))
       assert response(conn, 204)
-      assert_error_sent 404, fn ->
-        get conn, survey_path(conn, :show, survey)
-      end
+
+      assert_error_sent(404, fn ->
+        get(conn, survey_path(conn, :show, survey))
+      end)
     end
   end
 
