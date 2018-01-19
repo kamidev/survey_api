@@ -9,7 +9,8 @@ use Mix.Config
 config :survey_api, SurveyAPIWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
-  code_reloader: true,
+  code_reloader: false,
+  server: true,
   check_origin: false,
   watchers: []
 
