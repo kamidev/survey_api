@@ -63,4 +63,16 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs
 # which should be versioned separately.
+# See below for typical content:
+
+#config :survey_api, SurveyAPIWeb.Endpoint,
+#   secret_key_base: "YOUR_SECRET_KEY_HERE"
+
+# config :survey_api, SurveyAPI.Repo,
+#  adapter: Ecto.Adapters.Postgres,
+# username: "YOUR_PROD_USER",
+# password: "YOUR_PROD_PASSWORD",
+#  database: "survey_api_prod",
+#  pool_size: 15
+
 import_config "prod.secret.exs"
