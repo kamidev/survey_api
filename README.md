@@ -24,27 +24,29 @@ iex(1)>
 
 Postgres 9.6 or later must be installed. You also need a database user with permission to create databases. 
 
-On a development machine it is very convenient have a `postgres` user with password `postgres` (since this is the default assumed by all Elixir projects). Definitely use something else in production.
+On a development machine it is very convenient to have a `postgres` user with password `postgres` (this is the default assumed by all Elixir projects). But definitely use something else in production.
 
 ### Phoenix
+
+Make sure you have the latest version of Elixir and Erlang package managers.
+
+```shell
+mix local.hex
+mix local.rebar
+```
 
 Install the latest version of Phoenix.
 
 ```shell
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 ```
-Make sure you have the latest version of the Elixir package manager.
-
-```shell
-mix local.hex
-```
 
 ## Test installation on development machine
 
-Clone this repository somewhere on your dev machine
+Clone this repository
 ```shell
   git clone https://github.com/kamidev/survey_api.git
-  cd survey_api
+  cd survey_ap
   ```
   Install dependencies
   ```shell
@@ -54,7 +56,7 @@ Clone this repository somewhere on your dev machine
   ```shell
   mix ecto.reset
   ```
- Start Phoenix endpoint with
+ Start the Phoenix server
  ```shell
  iex -S mix phx.server
 ```
@@ -71,15 +73,17 @@ Surveys should return sample JSON data. The others should return `{"data":[]}`.
 
 ## Building releases and deploying
 
-For production use, the project is configured to build releases with [Distillery](https://github.com/bitwalker/distillery). 
+For production use, we build releases with [Distillery](https://github.com/bitwalker/distillery). 
 
-The current strategy is to install and test Erlang on the production server and then immediately download the resulting runtime binaries to development machine. This makes it possible to build usable releases both on the production server and on dev machines with different operation systems: other Ubuntu versions, CentOS, MacOS etc. There are alternatives to this strategy, but they typically require a separate build server and/or Docker. 
+The current strategy starts with installing Erlang and Elixir on the production server. By including the Erlang runtime binaries from the server, we can build releases both on the production server and on dev machines with different operation systems (other Ubuntu versions, CentOS, MacOS etc). There are lternatives, but they require a separate build server and/or Docker. 
 
 The basic deployment procedure is described in detail here: 
 
 [How to configure and deploy an Elixir app to a VPS](https://www.amberbit.com/blog/2017/7/17/deploy-elixir-app-to-a-vps/).
 
-To build a release, use the `mix release` command. Before you do, check your `rel/config.exs` file and make sure the correct version of the Erlang runtime is specified. To test a new release on your dev machine:
+The `mix release` command builds a release. Before building, check the Erlang runtime settings in the file `rel/config.exs`. To use the Erlang runtime already installed on the target server, set `include_erts: false`.
+
+Test your release on your dev machine:
 
 ```shell
 MIX_ENV=dev mix ecto.reset
@@ -87,23 +91,23 @@ MIX_ENV=dev mix release
 _build/dev/rel/survey_api/bin/survey_api start
 ```
 
-Make sure that `localhost:4000/api/surveys` and the other endpoints work. When the release is good enough for production, commit and push the latest code.
+Check that `localhost:4000/api/surveys` and the other endpoints work. When the release is good enough for production, commit and push the latest code.
 ## Deploying a new release to production
 
-Before deploying in production, make sure there is a file called `config/prod.secret.exs`. This file is not under version control, and is used for passwords and other sensitive values. See `config/prod.exs` for an example of what should go there.
+Before deploying in production, make sure there is a file called `config/prod.secret.exs`. This file is not under version control and is used for passwords and other sensitive data. See `config/prod.exs` for an example of what to put there. 
 
-Production endpoints are currently configured to run on `localhost:4001`. On your server, check out the latest code, then use this to deploy a completely new release:
+On the production server, check out the latest code, then use this to deploy a completely new release:
 
 ```shell
 MIX_ENV=prod mix release
 _build/prod/rel/survey_api/bin/survey_api start
 ```
 
-Check that the release is up with `curl http://localhost:4001/api/surveys`. This should return JSON for some survey templates. 
+Check that the release is up with `curl http://localhost:4001/api/surveys`. This should return JSON for some survey templates. All production endpoints are currently configured to run on `localhost:4001/api`. 
 
 List available application commands with `_build/prod/rel/survey_api/bin/survey_api help` 
 
-Note that the service does not restart automatically after a server reboot. This should be done with a [systemd service](https://mfeckie.github.io/Phoenix-In-Production-With-Systemd/), a cron job or something similar.
+Note that the service does not automatically restart after a server reboot. This can be managed with a [systemd service](https://mfeckie.github.io/Phoenix-In-Production-With-Systemd/), a cron job or something similar.
 
 WARNING! `mix ecto.reset` drops the database and sets up a sample survey. If real survey data is already in production, don't do that! Either create Ecto migrations for the production database or do it manually.
 
