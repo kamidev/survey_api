@@ -1,0 +1,20 @@
+[Unit]
+Description=SurveyAPI elixir web service
+Documentation=https://github.com/kamidev/survey_api
+After=network.target
+
+[Service]
+Type=forking
+User=kamidev
+WorkingDirectory=/home/kamidev/survey/survey_api
+ExecStart=/home/kamidev/survey/survey_api/_build/prod/rel/survey_api/bin/survey_api start
+ExecStop=/home/kamidev/survey/survey_api/_build/prod/rel/survey_api/bin/survey_api stop
+PIDFile=/home/kamidev/survey/survey_api/_build/prod/rel/survey_api/survey_api_prod.pid
+Restart=always
+RestartSec=5
+Environment=PORT=4001
+Environment=LANG=sv_SE.UTF-8
+SyslogIdentifier=survey_api 
+
+[Install]
+WantedBy=multi-user.target
