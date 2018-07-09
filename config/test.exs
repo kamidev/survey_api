@@ -16,4 +16,5 @@ config :survey_api, SurveyAPI.Repo,
   password: "postgres",
   database: "survey_api_test",
   hostname: "localhost",
+  template: "template0",
   pool: Ecto.Adapters.SQL.Sandbox

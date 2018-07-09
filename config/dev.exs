@@ -44,4 +44,5 @@ config :survey_api, SurveyAPI.Repo,
   password: "postgres",
   database: "survey_api_dev",
   hostname: "localhost",
+  template: "template0",
   pool_size: 10
