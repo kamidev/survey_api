@@ -40,7 +40,8 @@ defmodule SurveyAPI.Mixfile do
       {:gettext, "~> 0.15.0"},
       {:cors_plug, "~> 1.5.2"},
       {:distillery, "~> 1.5.3"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:pid_file, "~> 0.1.1"}
     ]
   end
 
