@@ -23,6 +23,8 @@ config :survey_api, SurveyAPIWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+config :pid_file, file: "./survey_api_prod.pid"
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key
@@ -65,7 +67,7 @@ config :logger, level: :info
 # which should be versioned separately.
 # See below for typical content:
 
-#config :survey_api, SurveyAPIWeb.Endpoint,
+# config :survey_api, SurveyAPIWeb.Endpoint,
 #   secret_key_base: "YOUR_SECRET_KEY_HERE"
 
 # config :survey_api, SurveyAPI.Repo,
