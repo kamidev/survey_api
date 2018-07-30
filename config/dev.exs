@@ -7,7 +7,11 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :survey_api, SurveyAPIWeb.Endpoint,
-  http: [port: 4000],
+  https: [
+    port: 4000,
+    certfile: "priv/cert/selfsigned.pem",
+    keyfile: "priv/cert/selfsigned_key.pem"
+  ],
   debug_errors: true,
   code_reloader: false,
   server: true,
@@ -39,6 +43,7 @@ config :phoenix, :stacktrace_depth, 20
 
 # Configure your database
 config :survey_api, SurveyAPI.Repo,
+  types: SurveyAPI.PostgresTypes,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",

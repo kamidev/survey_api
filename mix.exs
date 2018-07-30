@@ -33,15 +33,16 @@ defmodule SurveyAPI.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.3"},
+      {:phoenix, github: "phoenixframework/phoenix", branch: "master"},
       {:phoenix_pubsub, "~> 1.0.2"},
       {:phoenix_ecto, "~> 3.3.0"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.15.0"},
       {:cors_plug, "~> 1.5.2"},
       {:distillery, github: "bitwalker/distillery", branch: "master"},
-      {:cowboy, "~> 1.0"},
-      {:pid_file, "~> 0.1.1"}
+      {:cowboy, "~> 2.4.0"},
+      {:pid_file, "~> 0.1.1"},
+      {:jason, "~> 1.1.1"}
     ]
   end
 

@@ -10,6 +10,8 @@ config :survey_api,
   namespace: SurveyAPI,
   ecto_repos: [SurveyAPI.Repo]
 
+config :phoenix, :json_library, Jason
+
 # Configures the endpoint
 config :survey_api, SurveyAPIWeb.Endpoint,
   url: [host: "localhost"],
