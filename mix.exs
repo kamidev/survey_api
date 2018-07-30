@@ -39,7 +39,7 @@ defmodule SurveyAPI.Mixfile do
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.15.0"},
       {:cors_plug, "~> 1.5.2"},
-      {:distillery, "~> 1.5.3"},
+      {:distillery, github: "bitwalker/distillery", branch: "master"},
       {:cowboy, "~> 1.0"},
       {:pid_file, "~> 0.1.1"}
     ]
