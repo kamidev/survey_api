@@ -21,7 +21,7 @@ defmodule SurveyAPIWeb do
     quote do
       use Phoenix.Controller, namespace: SurveyAPIWeb
       import Plug.Conn
-      import SurveyAPIWeb.Router.Helpers
+      alias SurveyAPIWeb.Router.Helpers, as: Routes
       import SurveyAPIWeb.Gettext
     end
   end

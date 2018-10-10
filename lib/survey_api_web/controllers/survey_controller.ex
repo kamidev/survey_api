@@ -15,7 +15,7 @@ defmodule SurveyAPIWeb.SurveyController do
     with {:ok, %Survey{} = survey} <- Surveys.create_survey(survey_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", survey_path(conn, :show, survey))
+      |> put_resp_header("location", Routes.survey_path(conn, :show, survey))
       |> render("show.json", survey: survey)
     end
   end

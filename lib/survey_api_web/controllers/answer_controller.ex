@@ -15,7 +15,7 @@ defmodule SurveyAPIWeb.AnswerController do
     with {:ok, %Answer{} = answer} <- Answers.create_answer(answer_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", answer_path(conn, :show, answer))
+      |> put_resp_header("location", Routes.answer_path(conn, :show, answer))
       |> render("show.json", answer: answer)
     end
   end
