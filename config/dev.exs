@@ -44,7 +44,6 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :survey_api, SurveyAPI.Repo,
   types: SurveyAPI.PostgresTypes,
-  adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
   database: "survey_api_dev",

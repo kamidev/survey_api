@@ -74,7 +74,6 @@ config :pid_file, file: "./survey_api_prod.pid"
 #   secret_key_base: "YOUR_SECRET_KEY_HERE"
 # Configure your database
 config :survey_api, SurveyAPI.Repo,
-  adapter: Ecto.Adapters.Postgres,
   types: SurveyAPI.PostgresTypes,
   database: "survey_api_prod",
   pool_size: 15

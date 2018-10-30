@@ -11,8 +11,7 @@ config :logger, level: :warn
 
 # Configure your database
 config :survey_api, SurveyAPI.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  types: SurveyAPI.PostgresTypes,
+ types: SurveyAPI.PostgresTypes,
   username: "postgres",
   password: "postgres",
   database: "survey_api_test",

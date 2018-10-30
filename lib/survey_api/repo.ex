@@ -1,5 +1,7 @@
 defmodule SurveyAPI.Repo do
-  use Ecto.Repo, otp_app: :survey_api
+  use Ecto.Repo,
+    otp_app: :survey_api,
+    adapter: Ecto.Adapters.Postgres
 
   @doc """
   Dynamically loads the repository url from the
