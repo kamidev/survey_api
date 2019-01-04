@@ -4,8 +4,8 @@ defmodule SurveyAPI.Mixfile do
   def project do
     [
       app: :survey_api,
-      version: "1.1.2",
-      elixir: "~> 1.8.0",
+      version: "1.1.3",
+      elixir: "~> 1.8.0-rc.1",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
