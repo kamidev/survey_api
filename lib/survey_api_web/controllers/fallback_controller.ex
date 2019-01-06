@@ -9,7 +9,8 @@ defmodule SurveyAPIWeb.FallbackController do
   def call(conn, {:error, %Ecto.Changeset{} = changeset}) do
     conn
     |> put_status(:unprocessable_entity)
-    |> render(SurveyAPIWeb.ChangesetView, "error.json", changeset: changeset)
+    |> put_view(SurveyAPIWeb.ChangesetView)
+    |> render("error.json", changeset: changeset)
   end
 
   def call(conn, {:error, :not_found}) do
