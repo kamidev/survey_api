@@ -1,4 +1,7 @@
 defmodule SurveyAPI.Surveys.User do
+  @moduledoc """
+  This module is currently unused, since we don't store detailed user information
+  """
   use Ecto.Schema
   import Ecto.Changeset
   alias SurveyAPI.Surveys.User

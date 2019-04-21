@@ -1,4 +1,10 @@
 defmodule SurveyAPI.Surveys.Survey do
+  @moduledoc """
+  This module is used to store the structure of different surveys
+
+  The actual survey design is saved ibn a JSONB field
+  (Postgres binary json).
+  """
   use Ecto.Schema
   import Ecto.Changeset
   alias SurveyAPI.Surveys.Survey

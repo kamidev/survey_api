@@ -1,8 +1,12 @@
 defmodule SurveyAPI.Application do
-  use Application
-
+  @moduledoc """
+  This module provides a public API for Surveyjs frontend applications
+  """
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
+
+  use Application
+
   def start(_type, _args) do
     import Supervisor.Spec
 
