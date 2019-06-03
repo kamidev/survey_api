@@ -43,6 +43,10 @@ Install the latest version of Phoenix.
 ```shell
 mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 ```
+## Automatic checking of source code dependencies
+
+This project uses https://github.com/marketplace/dependabot-preview to check for updated dependencies. 
+Pull requests are generated automatically.
 
 ## Test installation on development machine
 
