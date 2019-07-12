@@ -4,7 +4,7 @@ defmodule SurveyAPI.Mixfile do
   def project do
     [
       app: :survey_api,
-      version: "1.5.3",
+      version: "1.5.4",
       elixir: "~> 1.9",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
@@ -41,7 +41,6 @@ defmodule SurveyAPI.Mixfile do
       {:phoenix_ecto, "~> 4.0.0"},
       {:gettext, "~> 0.17.0"},
       {:cors_plug, "~> 2.0.0"},
-      {:distillery, "~> 2.1.1"},
       {:plug_cowboy, "~> 2.1.0"},
       {:plug, "~> 1.8.2"},
       {:pid_file, "~> 0.1.1"},
