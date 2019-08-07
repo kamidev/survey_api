@@ -45,7 +45,8 @@ defmodule SurveyAPI.Mixfile do
       {:plug, "~> 1.8.3"},
       {:pid_file, "~> 0.1.1"},
       {:jason, "~> 1.1.2"},
-      {:credo, "~> 1.1.1", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.1.1", only: [:dev, :test], runtime: false},
+      {:ex_check, ">= 0.0.0", only: :dev, runtime: false}
     ]
   end
 
