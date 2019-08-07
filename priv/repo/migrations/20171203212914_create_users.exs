@@ -3,11 +3,10 @@ defmodule SurveyAPI.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :pseudonym, :string
-      add :user_id, :integer
+      add(:pseudonym, :string)
+      add(:user_id, :integer)
 
       timestamps()
     end
-
   end
 end
