@@ -1,5 +1,7 @@
 # SurveyAPI
 
+[![CircleCI build: ](https://circleci.com/gh/kamidev/survey_api.svg?style=svg)](https://circleci.com/gh/kamidev/survey_api)
+
 Elixir/Phoenix API for Viablecities data gathering.
 
 Phoenix API generators were used to create this API. [This blog post](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) gives a step-by-step description of how to use them. The official Phoenix documentation has a lot to say about [when you should use generators](https://hexdocs.pm/phoenix/contexts.html). TLDR: Don't rely on them without understanding what they do.
