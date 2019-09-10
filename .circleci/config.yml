@@ -7,12 +7,12 @@ jobs:
       - image: circleci/elixir:1.9.1
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD:
       - image: circleci/postgres:10-alpine
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD:
     # resource_class: medium+
     steps:
       - checkout
