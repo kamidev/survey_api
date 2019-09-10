@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      # Bump cache key version below when changing elixir version
+      - image: circleci/elixir:1.9.1
+    # resource_class: medium+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v3-dependency-cache-{{ checksum "mix.lock" }}
+            - v3-dependency-cache
+      - run: mix local.hex --force
+      - run: mix local.rebar --force
+      - run: mix deps.get
+      - run: mix deps.compile
+      - run: mix compile
+      - run:
+          command: mix compile
+          environment:
+            MIX_ENV: test
+      - save_cache:
+          key: v3-dependency-cache-{{ checksum "mix.lock" }}
+          paths:
+            - _build
+            - deps
+            - ~/.mix
+      - restore_cache:
+          keys:
+            - v3-plt-cache-{{ checksum "mix.lock" }}
+            - v3-plt-cache
+      - save_cache:
+          key: v3-plt-cache-{{ checksum "mix.lock" }}
+          paths:
+            - _build
+            - ~/.mix
+      - run: mix credo
+      - run: mix test
+
