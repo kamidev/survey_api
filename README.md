@@ -1,6 +1,6 @@
 # SurveyAPI
 
-[![CircleCI build: ](https://circleci.com/gh/kamidev/survey_api.svg?style=svg)](https://circleci.com/gh/kamidev/survey_api)
+[![CircleCI](https://circleci.com/gh/kamidev/survey_api.svg?style=svg&circle-token=65210ef7f2115ee81ae57725b5234badafb8b4ad)](https://circleci.com/gh/kamidev/survey_api)
 
 Elixir/Phoenix API for Viablecities data gathering.
 
