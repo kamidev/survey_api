@@ -8,8 +8,11 @@
     ## curated tools may be disabled (e.g. the check for compilation warnings)
     {:compiler, false},
 
-    ## ...or adjusted (e.g. use one-line formatter for more compact credo output)
-    {:credo, "mix credo --format oneline"}
+    ## Run Credo using default settings. Display results in compact format.
+    {:credo, "mix credo --format oneline"},
+    # Check security according to '.sobelow-conf' configuration file at project root
+    {:sobelow, "mix sobelow --config"},
+    {:dialyzer, "mix dialyzer --format short"}
 
     ## ...or reordered (e.g. to see output from ex_unit before others)
     # {:ex_unit, order: -1},

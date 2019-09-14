@@ -19,3 +19,6 @@ erl_crash.dump
 
 # Runtime support
 *.pid
+
+# Ignore generated docs. In production these should be deployed separately
+/doc
