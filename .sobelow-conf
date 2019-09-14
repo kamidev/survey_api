@@ -1,0 +1,12 @@
+[
+  verbose: false,
+  private: false,
+  skip: false,
+  router: "",
+  exit: "high",
+  format: "txt",
+  out: "",
+  threshold: "low",
+  ignore: [""],
+  ignore_files: ["config/prod.secret.exs"]
+]

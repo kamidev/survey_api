@@ -19,7 +19,8 @@ config :survey_api, SurveyAPIWeb.Endpoint,
     certfile: "priv/cert/selfsigned.pem",
     keyfile: "priv/cert/selfsigned_key.pem"
   ],
-  secret_key_base: "rkb5NLnoB1jXI5hDYnpG9Q",
+  # Don't use checked-in hardcoded value! Set this at deploy-time.
+  # secret_key_base: "rkb5NLnoB1jXI5hDYnpG9Q",
   server: true,
   root: "."
 
