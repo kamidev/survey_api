@@ -46,8 +46,7 @@ jobs:
           paths:
             - _build
             - ~/.mix
-      - run: mix credo
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: mix test
+      - run: mix check
