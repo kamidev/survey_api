@@ -18,10 +18,6 @@ jobs:
     # resource_class: medium+
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v3-dependency-cache-{{ checksum "mix.lock" }}
-            - v3-dependency-cache
       - run: mix local.hex --force
       - run: mix local.rebar --force
       - run: mix deps.get
