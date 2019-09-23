@@ -22,3 +22,7 @@ erl_crash.dump
 
 # Ignore generated docs. In production these should be deployed separately
 /doc
+
+"
+# Ignore artefact updated when Sobelow security checks run
+.sobelow
