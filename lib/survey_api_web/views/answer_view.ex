@@ -16,6 +16,7 @@ defmodule SurveyAPIWeb.AnswerView do
       pseudonym: answer.pseudonym,
       user_id: answer.user_id,
       survey_id: answer.survey_id,
+      project_id: answer.project_id,
       survey_answers: answer.survey_answers
     }
   end
