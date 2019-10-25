@@ -20,9 +20,10 @@ defmodule SurveyAPIWeb.AnswerController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    answer = Answers.get_answer!(id)
-    render(conn, "show.json", answer: answer)
+  @spec show(Plug.Conn.t(), map) :: Plug.Conn.t()
+  def show(conn, %{"id" => survey_id}) do
+    answers = Answers.list_answers(survey_id)
+    render(conn, "index.json", answers: answers)
   end
 
   def update(conn, %{"id" => id, "answer" => answer_params}) do

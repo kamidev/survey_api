@@ -22,6 +22,24 @@ defmodule SurveyAPI.Answers do
   end
 
   @doc """
+  Returns as filtered list of answers.
+
+  ## Examples
+
+      iex> list_answers(7)
+      [%Answer{}, ...]
+
+  """
+  def list_answers(survey_id) do
+    Repo.all(
+      from(a in "answers",
+        select: [:id, :pseudonym, :user_id, :project_id, :survey_id, :survey_answers],
+        where: a.survey_id == type(^survey_id, :integer)
+      )
+    )
+  end
+
+  @doc """
   Gets a single answer.
 
   Raises `Ecto.NoResultsError` if the Answer does not exist.
