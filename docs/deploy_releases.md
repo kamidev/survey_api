@@ -1,37 +1,66 @@
-## Deploying a new release to production
+## Deployment in production
 
-Before deploying in production, make sure there is a file called `config/prod.secret.exs`. This file is not under version control and is used for passwords and other sensitive data. See `config/prod.exs` for an example of what to put there.
+Our current deployment strategy is very simple: we install Erlang and Elixir on the production server and build there using the latest stable and tested code. This allows us to build the same way on production servers and dev machines. There are several more advanced approaches, but they typically involve Docker and/or separate build servers.
 
-On the production server, check out the latest code, then use this to deploy a completely new release:
+### Prerequisites
+
+#### Source code
+
+The latest code must be checked out on the production server by a user with sufficient permissions.
+
+Before deploying in production, make sure there is a file called `config/prod.secret.exs`. This file is not under version control and should contain passwords and other sensitive data. If it doesn't exist, use `config/prod.exs` as a starting point and create it.
+
+#### Database
+
+WARNING! Once real survey data is already in production, don't drop or reset the database! Either maintain the database manually or create specific Ecto migrations for production.
+
+For a brand new installation, the database is empty. Use the command `MIX_ENV=prod mix ecto.reset` to setup a new database with the required tables.
+
+### Creating a new production release
+
+### Build process
+
+Check out the latest code there and build a new release.
 
 ```shell
 MIX_ENV=prod mix release
-_build/prod/rel/survey_api/bin/survey_api start
 ```
 
-Check that the release is up with `curl http://localhost:4001/api/surveys`. This should return JSON for some survey templates. All production endpoints are currently configured to run on `localhost:4001/api`.
+Once the build has finished, list the known commands of your current release.
 
-List available application commands with `_build/prod/rel/survey_api/bin/survey_api help`
+`_build/prod/rel/survey_api/bin/survey_api help`.
 
-Note that the API will not automatically restart after a server reboot. Assuming the server runs the latest Ubuntu LTS version, this can be fixed byinstalling a [systemd service](https://mfeckie.github.io/Phoenix-In-Production-With-Systemd/). The source for this service is found under `/deploy/system`.
+Start the new service as a background service (Unix daemon).
 
-WARNING! `mix ecto.reset` drops the database and sets up a sample survey. If real survey data is already in production, don't do that! Either create Ecto migrations for the production database or do it manually.
+```shell
+_build/prod/rel/survey_api/bin/survey_api daemon
+```
 
-## Additional deployment resources
+Manually check that the release is up and working.
 
-Below are more resources about building and managing releases. It is good to read them before attempting to upgrade a production server.
+```shell
+curl https://localhost:4001/api/surveys -H 'content-type: application/json'
+```
 
-[Mastering Elixir Releases with Distillery — A (Pretty) Complete Guide](https://hackernoon.com/mastering-elixir-releases-with-distillery-a-pretty-complete-guide-497546f298bc)
+```shell
+curl https://localhost:4001/api/answers -H 'content-type: application/json'
+```
 
-[Using Distillery With Phoenix](https://hexdocs.pm/distillery/use-with-phoenix.html)
+These commands should return correct JSON data. All production endpoints are currently configured to run on `https://localhost:4001/api`.
+
+#### Configure automatic restarts
+
+Note that the API does not automatically restart after a server reboot. Assuming the server runs the latest Ubuntu LTS version, this can be fixed by installing a [systemd service](https://mfeckie.github.io/Phoenix-In-Production-With-Systemd/). The source of the SurveyAPI service is [here](deploy/systemd/survey_api.service).
+
+### Additional resources
+
+#### Deployment documentation
+
+Please read through this before attempting to upgrade a production server.
 
 [Official Phoenix deployment guides](http://www.phoenixframework.org/docs/deployment)
 
-Note that we currently do no use Edeliver to fully automate the release process. For frequent updates or multiple servers, this is worth looking into.
-
-[How To Automate Elixir-Phoenix Deployment with Distillery and edeliver on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-automate-elixir-phoenix-deployment-with-distillery-and-edeliver-on-ubuntu-16-04).
-
-### Official Phoenix resources
+#### Other official Phoenix documentation
 
 - Website: http://www.phoenixframework.org/
 - Guides: http://phoenixframework.org/docs/overview
