@@ -12,10 +12,11 @@ defmodule SurveyAPIWeb.AnswerView do
 
   def render("answer.json", %{answer: answer}) do
     %{
-      id: answer.id,
-      pseudonym: answer.pseudonym,
-      user_id: answer.user_id,
+      # id: answer.id,
+      # pseudonym: answer.pseudonym,
+      # user_id: answer.user_id,
       survey_id: answer.survey_id,
+      project_id: answer.project_id,
       survey_answers: answer.survey_answers
     }
   end

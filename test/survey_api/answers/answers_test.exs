@@ -10,15 +10,17 @@ defmodule SurveyAPI.AnswersTest do
       pseudonym: "some pseudonym",
       survey_id: 42,
       user_id: 42,
+      project_id: "123-4567",
       survey_answers: %{"Quality" => %{"affordable" => 2}}
     }
     @update_attrs %{
       pseudonym: "some updated pseudonym",
       survey_id: 43,
       user_id: 43,
+      project_id: "123-4567",
       survey_answers: %{"Quality" => %{"affordable" => 2}}
     }
-    @invalid_attrs %{pseudonym: nil, survey_id: nil, user_id: nil}
+    @invalid_attrs %{pseudonym: nil, project_id: nil, survey_id: nil, user_id: nil}
 
     def answer_fixture(attrs \\ %{}) do
       {:ok, answer} =

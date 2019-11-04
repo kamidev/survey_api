@@ -16,6 +16,7 @@ defmodule SurveyAPI.Answers.Answer do
     field(:pseudonym, :string)
     field(:survey_id, :integer)
     field(:user_id, :integer)
+    field(:project_id, :string)
     field(:survey_answers, :map, default: "{}")
 
     timestamps()
@@ -24,7 +25,7 @@ defmodule SurveyAPI.Answers.Answer do
   @doc false
   def changeset(%Answer{} = answer, attrs) do
     answer
-    |> cast(attrs, [:pseudonym, :user_id, :survey_id, :survey_answers])
-    |> validate_required([:user_id, :survey_id, :survey_answers])
+    |> cast(attrs, [:pseudonym, :user_id, :survey_id, :project_id, :survey_answers])
+    |> validate_required([:user_id, :survey_id, :project_id, :survey_answers])
   end
 end
