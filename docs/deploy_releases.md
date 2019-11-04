@@ -50,7 +50,7 @@ These commands should return correct JSON data. All production endpoints are cur
 
 #### Configure automatic restarts
 
-Note that the API does not automatically restart after a server reboot. Assuming the server runs the latest Ubuntu LTS version, this can be fixed by installing a [systemd service](https://mfeckie.github.io/Phoenix-In-Production-With-Systemd/). The source of the SurveyAPI service is [here](deploy/systemd/survey_api.service).
+Note that the API does not automatically restart after a server reboot. Assuming the server runs the latest Ubuntu LTS version, this can be fixed by installing a [systemd service](https://mfeckie.github.io/Phoenix-In-Production-With-Systemd/). The source of the SurveyAPI service is [here](https://github.com/kamidev/survey_api/blob/master/deploy/systemd/survey_api.service).
 
 ### Additional resources
 
