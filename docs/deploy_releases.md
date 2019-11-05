@@ -1,6 +1,8 @@
 ## Deployment in production
 
-Our current deployment strategy is very simple: we install Erlang and Elixir on the production server and build there using the latest stable and tested code. This allows us to build the same way on production servers and dev machines. There are several more advanced approaches, but they typically involve Docker and/or separate build servers.
+The current deployment strategy is very simple: we install Erlang and Elixir on the production server and build there using the latest stable and tested code. This allows us to build the same way on production servers and dev machines.
+
+More advanced deployment strategies exist, but typically require Docker and/or separate build servers.
 
 ### Prerequisites
 

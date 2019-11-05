@@ -4,9 +4,9 @@
 
 SurveyAPI is an [Elixir](https://elixir-lang.org/) backend for [SurveyJS](https://surveyjs.io/Overview/Library/), a Javascript library for creating online forms and surveys.
 
-Web applications displaying surveys can use our API calls to fetch survey definitions and store survey answers. Both surveys and answsers follow a documented JSON format. Our backend store them in Postgres, using [Postgres JSONB](http://www.silota.com/docs/recipes/sql-postgres-json-data-types.html) to make JSON search quick and painless.
+Web applications displaying surveys can use API calls to fetch survey definitions and store survey answers. Both surveys and answers follow a documented JSON format. Our backend store them in Postgres, using [Postgres JSONB](http://www.silota.com/docs/recipes/sql-postgres-json-data-types.html) to make JSON search quick and painless.
 
-Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limtations of generators](https://hexdocs.pm/phoenix/contexts.html). In summary: you should not use generators without understanding what they do. Here is a current description of how to write your API [manually](https://elixircasts.io/json-api-with-phoenix-1.4).
+Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html). To summarize: you should not use generators without understanding what they do. Here is a current description of how to write your API [manually](https://elixircasts.io/json-api-with-phoenix-1.4).
 
 ## Prerequisites
 
@@ -65,13 +65,15 @@ mix deps.get
 
 Wipe the dev database clean and load some sample data
 
-````shell
+```shell
 mix ecto.reset
-```a
+```
+
 Start the Phoenix server
+
 ```shell
 iex -S mix phx.server
-````
+```
 
 Now visit the API endpoints with your browser:
 
@@ -149,7 +151,3 @@ Once the release is good enough for production, commit and push the latest code.
 ### Deployment
 
 Read more about deployment, server configuration and using systemd services [here](docs/deploy_releases.md).
-
-```
-
-```
