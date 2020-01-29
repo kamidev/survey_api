@@ -2,6 +2,7 @@ defmodule SurveyAPI.Application do
   @moduledoc """
   This module provides a public API for Surveyjs frontend applications
   """
+
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
 
