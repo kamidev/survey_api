@@ -10,7 +10,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
           POSTGRES_PASSWORD:
-      - image: circleci/postgres:11-alpine
+      - image: circleci/postgres:12-alpine
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
@@ -28,17 +28,17 @@ jobs:
           environment:
             MIX_ENV: test
       - save_cache:
-          key: v3-dependency-cache-{{ checksum "mix.lock" }}
+          key: v4-dependency-cache-{{ checksum "mix.lock" }}
           paths:
             - _build
             - deps
             - ~/.mix
       - restore_cache:
           keys:
-            - v3-plt-cache-{{ checksum "mix.lock" }}
-            - v3-plt-cache
+            - v4-plt-cache-{{ checksum "mix.lock" }}
+            - v4-plt-cache
       - save_cache:
-          key: v3-plt-cache-{{ checksum "mix.lock" }}
+          key: v4-plt-cache-{{ checksum "mix.lock" }}
           paths:
             - _build
             - ~/.mix
