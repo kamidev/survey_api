@@ -27,7 +27,21 @@ jobs:
           command: mix compile
           environment:
             MIX_ENV: test
-
+      - save_cache:
+          key: v4-dependency-cache-{{ checksum "mix.lock" }}
+          paths:
+            - _build
+            - deps
+            - ~/.mix
+      - restore_cache:
+          keys:
+            - v4-plt-cache-{{ checksum "mix.lock" }}
+            - v4-plt-cache
+      - save_cache:
+          key: v4-plt-cache-{{ checksum "mix.lock" }}
+          paths:
+            - _build
+            - ~/.mix
       - run: mix credo
       - run:
           name: Wait for DB
