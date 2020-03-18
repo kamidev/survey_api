@@ -44,7 +44,7 @@ defmodule SurveyAPI.Mixfile do
       {:plug_cowboy, "~> 2.1.1"},
       {:plug, "~> 1.9.0"},
       {:pid_file, "~> 0.1.1"},
-      {:jason, "~> 1.1.2"},
+      {:jason, "~> 1.2.0"},
       {:telemetry, "~> 0.4.1"},
       {:credo, "~> 1.3.0", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.10.1", only: :dev},
