@@ -35,7 +35,7 @@ defmodule SurveyAPI.Mixfile do
     [
       {:phoenix, "~> 1.4.16"},
       {:phoenix_pubsub, "~> 1.1.2"},
-      {:ecto, "~> 3.3.1"},
+      {:ecto, "~> 3.4.0"},
       {:ecto_sql, "~> 3.3"},
       {:postgrex, "~> 0.15.0"},
       {:phoenix_ecto, "~> 4.1.0"},
