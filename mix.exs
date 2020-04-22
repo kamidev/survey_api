@@ -41,7 +41,7 @@ defmodule SurveyAPI.Mixfile do
       {:phoenix_ecto, "~> 4.1.0"},
       {:gettext, "~> 0.17.4"},
       {:cors_plug, "~> 2.0.2"},
-      {:plug_cowboy, "~> 2.1.1"},
+      {:plug_cowboy, "~> 2.2.1"},
       {:plug, "~> 1.10.0"},
       {:pid_file, "~> 0.1.1"},
       {:jason, "~> 1.2.0"},
