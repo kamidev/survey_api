@@ -17,7 +17,7 @@ config :survey_api, SurveyAPIWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "zysGjxU1cPARue69flssir0I0UZsQTaU9h/0Apd+SB6E7/fzRh1O33Q+9DkxOVxt",
   render_errors: [view: SurveyAPIWeb.ErrorView, accepts: ~w(json)],
-  pubsub: [name: SurveyAPI.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub_server: MyApp.PubSub
 
 # Configures Elixir's Logger
 config :logger, :console,
