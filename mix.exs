@@ -39,7 +39,7 @@ defmodule SurveyAPI.Mixfile do
       {:ecto_sql, "~> 3.4.3"},
       {:postgrex, "~> 0.15.0"},
       {:phoenix_ecto, "~> 4.1.0"},
-      {:gettext, "~> 0.17.4"},
+      {:gettext, "~> 0.18.0"},
       {:cors_plug, "~> 2.0.2"},
       {:plug_cowboy, "~> 2.2.1"},
       {:plug, "~> 1.10.0"},
