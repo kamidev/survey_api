@@ -16,6 +16,7 @@ use Mix.Config
 config :survey_api, SurveyAPIWeb.Endpoint,
   https: [
     port: 4001,
+    cipher_suite: :strong,
     certfile: "priv/cert/selfsigned.pem",
     keyfile: "priv/cert/selfsigned_key.pem"
   ],
