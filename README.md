@@ -6,7 +6,7 @@ SurveyAPI is an [Elixir](https://elixir-lang.org/) backend for [SurveyJS](https:
 
 Web applications displaying surveys can use API calls to fetch survey definitions and store survey answers. Both surveys and answers follow a documented JSON format. Our backend store them in Postgres, using [Postgres JSONB](http://www.silota.com/docs/recipes/sql-postgres-json-data-types.html) to make JSON search quick and painless.
 
-Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html). To summarize: you should not use generators without understanding what they do. Here is a current description of how to write your API [manually](https://elixircasts.io/json-api-with-phoenix-1.4).
+Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html#starting-with-generators). To summarize: you should not use generators without understanding what they do. Here is a current description of how to write your API [manually](https://elixircasts.io/json-api-with-phoenix-1.4).
 
 ## Prerequisites
 
