@@ -11,10 +11,11 @@
     ## Run Credo using default settings. Display results in compact format.
     {:credo, "mix credo --format oneline"},
     # Check security as specified by '.sobelow-conf' file at project root
-    {:sobelow, "mix sobelow --config"}
+    {:sobelow, "mix sobelow --config"},
 
     ## ...or reordered (e.g. to see output from ex_unit before others)
     # {:ex_unit, order: -1},
+    {:ex_unit, ["mix", "cmd", "mix test --color || mix test --color --failed"]}
 
     ## custom new tools may be added (mix tasks or arbitrary commands)
     # {:my_mix_task, command: "mix release", env: %{"MIX_ENV" => "prod"}},
