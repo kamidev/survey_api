@@ -46,7 +46,7 @@ defmodule SurveyAPI.Mixfile do
       {:pid_file, "~> 0.1.1"},
       {:jason, "~> 1.2.2"},
       {:telemetry, "~> 0.4.1"},
-      {:credo, "~> 1.4.1", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.5.0", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.10.4", only: :dev},
       {:dialyxir, "~> 1.0.0", only: [:dev], runtime: false},
       {:ex_doc, "~> 0.23.0", only: :dev, runtime: false},
