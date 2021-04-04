@@ -17,7 +17,7 @@ defmodule SurveyAPI.Answers.Answer do
     field(:survey_id, :integer)
     field(:user_id, :integer)
     field(:project_id, :string)
-    field(:survey_answers, :map, default: "{}")
+    field(:survey_answers, :map)
 
     timestamps()
   end
