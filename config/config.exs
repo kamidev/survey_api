@@ -8,7 +8,8 @@ use Mix.Config
 # General application configuration
 config :survey_api,
   namespace: SurveyAPI,
-  ecto_repos: [SurveyAPI.Repo]
+  ecto_repos: [SurveyAPI.Repo],
+  types: SurveyAPI.PostgrexTypes
 
 config :phoenix, :json_library, Jason
 
