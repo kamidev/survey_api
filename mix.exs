@@ -35,9 +35,9 @@ defmodule SurveyAPI.Mixfile do
     [
       {:phoenix, "~> 1.5.8"},
       {:phoenix_pubsub, "~> 2.0.0"},
-      {:ecto, "~> 3.6.0"},
-      {:ecto_sql, "~> 3.6.0"},
-      {:postgrex, "~> 0.15.8"},
+      {:ecto, "~> 3.6.1"},
+      {:ecto_sql, "~> 3.6.1"},
+      {:postgrex, "~> 0.15.9"},
       {:phoenix_ecto, "~> 4.2.1"},
       {:gettext, "~> 0.18.2"},
       {:cors_plug, "~> 2.0.3"},
@@ -49,7 +49,7 @@ defmodule SurveyAPI.Mixfile do
       {:credo, "~> 1.5.5", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.11.1", only: :dev},
       {:dialyxir, "~> 1.1.0", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.24.1", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.24.2", only: :dev, runtime: false},
       {:doctor, ">= 0.17.0", only: [:dev], runtime: false},
       {:ex_check, ">= 0.14 .0", only: :dev, runtime: false}
     ]
