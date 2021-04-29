@@ -1,0 +1,45 @@
+version: 2
+updates:
+- package-ecosystem: mix
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: ex_doc
+    versions:
+    - 0.24.0
+    - 0.24.1
+  - dependency-name: sobelow
+    versions:
+    - 0.11.0
+    - 0.11.1
+  - dependency-name: plug
+    versions:
+    - 1.11.1
+  - dependency-name: phoenix
+    versions:
+    - 1.5.8
+  - dependency-name: ecto
+    versions:
+    - 3.5.6
+    - 3.5.7
+    - 3.5.8
+  - dependency-name: dialyxir
+    versions:
+    - 1.1.0
+  - dependency-name: cors_plug
+    versions:
+    - 2.0.3
+  - dependency-name: credo
+    versions:
+    - 1.5.5
+  - dependency-name: ex_check
+    versions:
+    - 0.14.0
+  - dependency-name: ecto_sql
+    versions:
+    - 3.5.4
+  - dependency-name: postgrex
+    versions:
+    - 0.15.8
