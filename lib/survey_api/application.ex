@@ -9,14 +9,12 @@ defmodule SurveyAPI.Application do
   use Application
 
   def start(_type, _args) do
-    import Supervisor.Spec
-
     # Define workers and child supervisors to be supervised
     children = [
       # Start the Ecto repository
-      supervisor(SurveyAPI.Repo, []),
+      {SurveyAPI.Repo, []},
       # Start the endpoint when the application starts
-      supervisor(SurveyAPIWeb.Endpoint, [])
+      {SurveyAPIWeb.Endpoint, []}
       # Start your own worker by calling: SurveyAPI.Worker.start_link(arg1, arg2, arg3)
       # worker(SurveyAPI.Worker, [arg1, arg2, arg3]),
     ]
