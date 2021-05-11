@@ -16,10 +16,10 @@ Elixir requires the Erlang/OTP runtime. Current versions for this project can be
 
 Check your installation by running the commandline shell `iex`. The result should be similar to this:
 
-```survey_api git:(master) ✗ iex
-Erlang/OTP 22 [erts-10.5.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [hipe]
+```> survey_api git:(master) iex
+Erlang/OTP 23 [erts-11.2.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [hipe]
 
-Interactive Elixir (1.9.2) - press Ctrl+C to exit (type h() ENTER for help)
+Interactive Elixir (1.11.4) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)>
 ```
 
@@ -42,9 +42,9 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 
 Postgres 11 or later is required. At least one database user must have permissions to create databases.
 
-On developer machines you might have a `postgres` user with password `postgres` (the default for new Elixir projects). In production, datatabase logins MUST be more secure. Phoenix by default keeps production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control.
+On developer machines you could use a `postgres` user with password `postgres` (the default for new Elixir projects). In production, datatabase logins MUST be more secure. Phoenix by default keeps production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control.
 
-Note! For Docker-based deployments, use environment variables instead of 'prod.secret.exs'.
+Note! Docker-based deployments use environment variables instead of 'prod.secret.exs'.
 
 ## Development
 
