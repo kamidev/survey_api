@@ -2,8 +2,8 @@ defmodule SurveyAPI.Answers.Answer do
   @moduledoc """
   Define database table for survey answers.
 
-  Note that the actual answers are stored as binary json, in a Postgres JSONB field.
-  This provides flexibiity and allows us to store differenent surveys using the same table.
+  Note that the actual answers are stored as binary json, in the JSONB field 'survey_answers'.
+  This provides flexibility and allows us to store different surveys using the same table.
 
   The rest of the fields defined here are used to search for some set of answers.
   They cannot be changed without breaking backwards compatibily.
@@ -17,7 +17,7 @@ defmodule SurveyAPI.Answers.Answer do
     field(:survey_id, :integer)
     field(:user_id, :integer)
     field(:project_id, :string)
-    field(:survey_answers, :map, default: "{}")
+    field(:survey_answers, :map)
 
     timestamps()
   end
