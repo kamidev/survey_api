@@ -42,9 +42,9 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 
 Postgres 11 or later is required. At least one database user must have permissions to create databases.
 
-On developer machines it's convenient to have a `postgres` user with password `postgres` (this is the default for new Elixir projects).
+On developer machines you might have a `postgres` user with password `postgres` (the default for new Elixir projects). In production, datatabase logins MUST be more secure. Phoenix by default keeps production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control.
 
-In production, datatabase logins MUST be more secure. Phoenix keep production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control. Note! Docker and some other deployment alternatives may prefer using environment variables instead.
+Note! For Docker-based deployments, use environment variables instead of 'prod.secret.exs'.
 
 ## Development
 
@@ -75,15 +75,23 @@ Start the Phoenix server
 iex -S mix phx.server
 ```
 
-Now visit the API endpoints with your browser:
+Now check the API endpoints:
 
-[`localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
+```shell
+curl https://localhost:4001/api/surveys -k
+```
 
-[`localhost:4000/api/users`](http://localhost:4000/api/users)
+```shell
+curl https://localhost:4001/api/answers -k
+```
 
-[`localhost:4000/api/answers`](http://localhost:4000/api/answers)
+For a clean installation, both surveys and answers should return `{"data":[]}`. If the database already has some content, more JSON data is returned.
 
-Surveys should return sample JSON data. The others should return `{"data":[]}`.
+You can also check the API using your browser. Note! It may be necessary to make a browser security exceptions for Elixir's self-certified SSL certificates.
+
+[`https://localhost:4001/api/surveys`](http://localhost:4000/api/surveys)
+
+[`https://localhost:4000/api/answers`](http://localhost:4000/api/answers)
 
 ### Automatic checking of source code dependencies
 
@@ -112,7 +120,7 @@ A single mix task is used to run all these tools :
 ➜ mix check
 ```
 
-This is the expected result.
+Sample session:
 
 ```shell
 ... detailed output omitted here
