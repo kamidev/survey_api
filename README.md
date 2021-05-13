@@ -87,7 +87,7 @@ curl https://localhost:4000/api/answers -k
 
 For a clean installation, both surveys and answers should return `{"data":[]}`. If the database already has some content, more JSON data is returned.
 
-You can also check the API using your browser. Note! It may be necessary to make a browser security exceptions for Elixir's self-certified SSL certificates.
+You can also check the API using your browser. Note! It may be necessary to make a browser security exception for Elixir's self-certified SSL certificates.
 
 [`https://localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
 
