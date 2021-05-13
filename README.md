@@ -78,18 +78,18 @@ iex -S mix phx.server
 Now check the API endpoints:
 
 ```shell
-curl https://localhost:4001/api/surveys -k
+curl https://localhost:4000/api/surveys -k
 ```
 
 ```shell
-curl https://localhost:4001/api/answers -k
+curl https://localhost:4000/api/answers -k
 ```
 
 For a clean installation, both surveys and answers should return `{"data":[]}`. If the database already has some content, more JSON data is returned.
 
 You can also check the API using your browser. Note! It may be necessary to make a browser security exceptions for Elixir's self-certified SSL certificates.
 
-[`https://localhost:4001/api/surveys`](http://localhost:4000/api/surveys)
+[`https://localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
 
 [`https://localhost:4000/api/answers`](http://localhost:4000/api/answers)
 
@@ -150,7 +150,7 @@ If this succeeds, you wil see a message describing various options for running t
 
 `_build/prod/rel/survey_api/bin/survey_api daemon`
 
-First check that `localhost:4001/api/surveys` and other JSON endpoints produce valid JSON.
+First check that `localhost:4000/api/surveys` and other JSON endpoints produce valid JSON.
 
 Then run `mix check` and deal with any problems reported by the automated tools.
 
