@@ -13,7 +13,6 @@ config :survey_api, SurveyAPIWeb.Endpoint,
     certfile: "priv/cert/selfsigned.pem",
     keyfile: "priv/cert/selfsigned_key.pem"
   ],
-  debug_errors: true,
   server: false
 
 # ## SSL Support

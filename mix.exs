@@ -43,7 +43,6 @@ defmodule SurveyAPI.Mixfile do
       {:cors_plug, "~> 2.0.3"},
       {:plug_cowboy, "~> 2.5.0"},
       {:plug, "~> 1.11.1"},
-      {:ranch, "~> 2.0", override: true},
       {:pid_file, "~> 0.1.1"},
       {:jason, "~> 1.2.2"},
       {:telemetry, "~> 0.4.3"},
