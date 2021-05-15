@@ -1,8 +1,8 @@
 ## Deployment in production
 
-The current deployment strategy is very simple: we install Erlang and Elixir on the production server and build there using the latest stable and tested code. This allows us to build the same way on production servers and dev machines.
+The current deployment strategy is very simple: install Erlang and Elixir on the production server and build there using the latest stable and tested code. This makes it easy to install on a single production server and build the same way as on dev machines.
 
-More advanced deployment strategies exist, but typically require Docker and/or separate build servers.
+More advanced strategies are possible for other deployment targets. Use what makes sense for your needs.
 
 ### Prerequisites
 
@@ -41,11 +41,11 @@ _build/prod/rel/survey_api/bin/survey_api daemon
 Manually check that the release is up and working.
 
 ```shell
-curl https://localhost:4001/api/surveys -H 'content-type: application/json'
+curl https://localhost:4001/api/surveys -k
 ```
 
 ```shell
-curl https://localhost:4001/api/answers -H 'content-type: application/json'
+curl https://localhost:4001/api/answers -k
 ```
 
 These commands should return correct JSON data. All production endpoints are currently configured to run on `https://localhost:4001/api`.

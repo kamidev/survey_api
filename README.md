@@ -6,7 +6,9 @@ SurveyAPI is an [Elixir](https://elixir-lang.org/) backend for [SurveyJS](https:
 
 Web applications displaying surveys can use API calls to fetch survey definitions and store survey answers. Both surveys and answers follow a documented JSON format. Our backend store them in Postgres, using [Postgres JSONB](http://www.silota.com/docs/recipes/sql-postgres-json-data-types.html) to make JSON search quick and painless.
 
-Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html#starting-with-generators). To summarize: you should not use generators without understanding what they do. Here is a current description of how to write your API [manually](https://elixircasts.io/json-api-with-phoenix-1.4).
+Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html).
+
+To summarize: you should not use generators without understanding what they do. Here are reasonably current tutorials for writing an API [manually](https://elixircasts.io/json-api-with-phoenix-1.4) or using the latest[Phoenix 1.5 generators](https://www.poeticoding.com/another-guide-to-build-a-json-api-with-phoenix-1-5/).
 
 ## Prerequisites
 
@@ -16,10 +18,10 @@ Elixir requires the Erlang/OTP runtime. Current versions for this project can be
 
 Check your installation by running the commandline shell `iex`. The result should be similar to this:
 
-```survey_api git:(master) ✗ iex
-Erlang/OTP 22 [erts-10.5.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [hipe]
+```> survey_api git:(master) iex
+Erlang/OTP 23 [erts-11.2.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [hipe]
 
-Interactive Elixir (1.9.2) - press Ctrl+C to exit (type h() ENTER for help)
+Interactive Elixir (1.11.4) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)>
 ```
 
@@ -42,9 +44,9 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 
 Postgres 11 or later is required. At least one database user must have permissions to create databases.
 
-On developer machines it's convenient to have a `postgres` user with password `postgres` (this is the default for new Elixir projects).
+On developer machines you could use a `postgres` user with password `postgres` (the default for new Elixir projects). In production, datatabase logins MUST be more secure. Phoenix by default keeps production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control.
 
-In production, datatabase logins MUST be more secure. Phoenix keep production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control. Note! Docker and some other deployment alternatives may prefer using environment variables instead.
+Note! Docker-based deployments should use environment variables instead of 'prod.secret.exs'.
 
 ## Development
 
@@ -75,20 +77,28 @@ Start the Phoenix server
 iex -S mix phx.server
 ```
 
-Now visit the API endpoints with your browser:
+Now check the API endpoints:
 
-[`localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
+```shell
+curl https://localhost:4000/api/surveys -k
+```
 
-[`localhost:4000/api/users`](http://localhost:4000/api/users)
+```shell
+curl https://localhost:4000/api/answers -k
+```
 
-[`localhost:4000/api/answers`](http://localhost:4000/api/answers)
+After a clean installation, both endpoints return `{"data":[]}`. If the database already has some content, some JSON data will be returned.
 
-Surveys should return sample JSON data. The others should return `{"data":[]}`.
+You can also check the API using your browser. Note! It may be necessary to make a browser security exception for Elixir's self-certified SSL certificates.
+
+[`https://localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
+
+[`https://localhost:4000/api/answers`](http://localhost:4000/api/answers)
 
 ### Automatic checking of source code dependencies
 
-This repo uses https://github.com/marketplace/dependabot-preview to check for updated dependencies.
-Pull requests for updated dependencies are generated automatically
+This repo uses [Github Dependabot](https://docs.github.com/en/code-security/supply-chain-security/about-dependabot-version-updates) to check for updated dependencies.
+Pull requests for updated dependencies will be generated automatically
 
 ### Automated code quality tools
 
@@ -112,10 +122,10 @@ A single mix task is used to run all these tools :
 ➜ mix check
 ```
 
-This is the expected result.
+Sample session:
 
 ```shell
-... detailed output omitted here
+... lots of detailed output omitted here
 
 => finished in 0:15
 
@@ -128,23 +138,21 @@ This is the expected result.
 ✓ sobelow success in 0:02
 ```
 
-The [ex_check](https://github.com/karolsluszniak/ex_check) library must be installed to use `mix check`.
+Please make sure the [ex_check](https://github.com/karolsluszniak/ex_check) library is installed and correctly configured to get the most out of `mix check`.
 
 ## Building releases for production use
 
-To deploy SurveyAPI in production, we package it as an [Elixir release](https://hexdocs.pm/mix/Mix.Tasks.Release.html). Here is a short [tutorial](https://henriktudborg.dk/articles/2019/03/10/elixir-1.9.1-releases) about that.
+To deploy SurveyAPI in production, we use an [Elixir release](https://hexdocs.pm/mix/Mix.Tasks.Release.html). Here is a short [tutorial](https://henriktudborg.dk/articles/2019/03/10/elixir-1.9.1-releases) about that.
 
 Typically, you first test your release on a developer machine. To build a production release, first run:
 
 `MIX_ENV=prod mix release`
 
-If this succeeds, you wil see a message describing various options for running the release. Try running it in the background:
+If this succeeds, you will see a message describing various options for running the release. Try running it in the background:
 
 `_build/prod/rel/survey_api/bin/survey_api daemon`
 
-First check that `localhost:4001/api/surveys` and other JSON endpoints produce valid JSON.
-
-Then run `mix check` and deal with any problems reported by the automated tools.
+Verify that `localhost:4000/api/surveys` and other endpoints produce valid JSON. Then run `mix check` and deal with any problems reported by the automated tools.
 
 Once the release is good enough for production, commit and push the latest code.
 

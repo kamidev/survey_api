@@ -33,7 +33,7 @@ defmodule SurveyAPI.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.5.8"},
+      {:phoenix, "~> 1.5.9"},
       {:phoenix_pubsub, "~> 2.0.0"},
       {:ecto, "~> 3.6.1"},
       {:ecto_sql, "~> 3.6.1"},
@@ -41,11 +41,11 @@ defmodule SurveyAPI.Mixfile do
       {:phoenix_ecto, "~> 4.2.1"},
       {:gettext, "~> 0.18.2"},
       {:cors_plug, "~> 2.0.3"},
-      {:plug_cowboy, "~> 2.4.1"},
+      {:plug_cowboy, "~> 2.5.0"},
       {:plug, "~> 1.11.1"},
       {:pid_file, "~> 0.1.1"},
       {:jason, "~> 1.2.2"},
-      {:telemetry, "~> 0.4.1"},
+      {:telemetry, "~> 0.4.3"},
       {:credo, "~> 1.5.5", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.11.1", only: :dev},
       {:dialyxir, "~> 1.1.0", only: [:dev], runtime: false},
