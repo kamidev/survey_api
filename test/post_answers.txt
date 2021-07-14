@@ -1,4 +1,4 @@
-POST http://0.0.0.0:4000/api/answers HTTP/1.1
+POST https://0.0.0.0:4000/api/answers HTTP/1.1
 content-type: application/json
 
 {"answer":{
