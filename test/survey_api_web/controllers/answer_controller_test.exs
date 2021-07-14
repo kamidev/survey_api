@@ -85,17 +85,14 @@ defmodule SurveyAPIWeb.AnswerControllerTest do
     end
   end
 
-  @tag :skip
   describe "delete answer" do
     setup [:create_answer]
 
     test "deletes chosen answer", %{conn: conn, answer: answer} do
       conn = delete(conn, answer_path(conn, :delete, answer))
       assert response(conn, 204)
-
-      assert_error_sent(404, fn ->
-        get(conn, answer_path(conn, :show, answer))
-      end)
+      conn = get(conn, answer_path(conn, :show, answer))
+      assert json_response(conn, 200)["data"] == []
     end
   end
 
