@@ -8,7 +8,7 @@ Web applications displaying surveys can use API calls to fetch survey definition
 
 Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html).
 
-To summarize: you should not use generators without understanding what they do. Here are reasonably current tutorials for writing an API [manually](https://elixircasts.io/json-api-with-phoenix-1.4) or using the latest[Phoenix 1.5 generators](https://www.poeticoding.com/another-guide-to-build-a-json-api-with-phoenix-1-5/).
+To summarize: you should not use generators without understanding what they do. Here are reasonably current tutorials for writing an API [manually](https://elixircasts.io/json-api-with-phoenix-1.4) or using the latest [Phoenix 1.5 generators](https://www.poeticoding.com/another-guide-to-build-a-json-api-with-phoenix-1-5/).
 
 ## Prerequisites
 
@@ -19,9 +19,9 @@ Elixir requires the Erlang/OTP runtime. Current versions for this project can be
 Check your installation by running the commandline shell `iex`. The result should be similar to this:
 
 ```> survey_api git:(master) iex
-Erlang/OTP 23 [erts-11.2.2] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [hipe]
+Erlang/OTP 24 [erts-12.0.3] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [jit]
 
-Interactive Elixir (1.11.4) - press Ctrl+C to exit (type h() ENTER for help)
+Interactive Elixir (1.12.2) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)>
 ```
 
