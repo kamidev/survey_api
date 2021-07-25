@@ -42,7 +42,7 @@ defmodule SurveyAPI.Mixfile do
       {:gettext, "~> 0.18.2"},
       {:cors_plug, "~> 2.0.3"},
       {:plug_cowboy, "~> 2.5.1"},
-      {:plug, "~> 1.11.1"},
+      {:plug, "~> 1.12.0"},
       {:jason, "~> 1.2.2"},
       {:telemetry, "~> 0.4.3"},
       {:credo, "~> 1.5.6", only: [:dev, :test], runtime: false},
