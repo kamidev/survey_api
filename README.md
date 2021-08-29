@@ -65,6 +65,14 @@ Install dependencies
 mix deps.get
 ```
 
+Setup SSH for development. See https://hexdocs.pm/phoenix/using_ssl.html#ssl-in-development
+
+Note! Make a browser security exception for Elixir's self-certified SSL certificates if necessary.
+
+```shell
+mix phx.gen.cert
+```
+
 Wipe the dev database clean and load some sample data
 
 ```shell
@@ -80,20 +88,20 @@ iex -S mix phx.server
 Now check the API endpoints:
 
 ```shell
-curl https://localhost:4000/api/surveys -k
+curl https://localhost:4001/api/surveys -k
 ```
 
 ```shell
-curl https://localhost:4000/api/answers -k
+curl https://localhost:4001/api/answers -k
 ```
 
 After a clean installation, both endpoints return `{"data":[]}`. If the database already has some content, some JSON data will be returned.
 
-You can also check the API using your browser. Note! It may be necessary to make a browser security exception for Elixir's self-certified SSL certificates.
+You can also check the API using your browser.
 
-[`https://localhost:4000/api/surveys`](http://localhost:4000/api/surveys)
+[`https://localhost:4001/api/surveys`](https://localhost:4001/api/surveys)
 
-[`https://localhost:4000/api/answers`](http://localhost:4000/api/answers)
+[`https://localhost:4001/api/answers`](https://localhost:4001/api/answers)
 
 ### Automatic checking of source code dependencies
 
