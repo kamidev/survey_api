@@ -67,8 +67,6 @@ mix deps.get
 
 Setup SSH for development. See https://hexdocs.pm/phoenix/using_ssl.html#ssl-in-development
 
-Note! Make a browser security exception for Elixir's self-certified SSL certificates if necessary.
-
 ```shell
 mix phx.gen.cert
 ```
@@ -85,7 +83,7 @@ Start the Phoenix server
 iex -S mix phx.server
 ```
 
-Now check the API endpoints:
+Then check the API endpoints from another terminal.
 
 ```shell
 curl https://localhost:4001/api/surveys -k
@@ -102,6 +100,8 @@ You can also check the API using your browser.
 [`https://localhost:4001/api/surveys`](https://localhost:4001/api/surveys)
 
 [`https://localhost:4001/api/answers`](https://localhost:4001/api/answers)
+
+Note! Make a browser security exception for Elixir's self-certified SSL certificates if necessary.
 
 ### Automatic checking of source code dependencies
 
