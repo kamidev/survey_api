@@ -48,7 +48,7 @@ defmodule SurveyAPI.Mixfile do
       {:credo, "~> 1.6.0", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.11.1", only: :dev},
       {:dialyxir, "~> 1.1.0", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.25.3", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.26.0", only: :dev, runtime: false},
       {:doctor, ">= 0.18.0", only: [:dev], runtime: false},
       {:ex_check, ">= 0.14 .0", only: :dev, runtime: false}
     ]
