@@ -4,7 +4,7 @@ jobs:
     parallelism: 1
     docker:
       # Bump cache key version below when changing elixir version
-      - image: circleci/elixir:latest
+      - image: circleci/elixir:1.13-node-browsers-legacy
         environment:
           MIX_ENV: test
           POSTGRES_USER: postgres
