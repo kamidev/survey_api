@@ -10,7 +10,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
           POSTGRES_PASSWORD:
-      - image: circleci/postgres:12-alpine
+      - image: cimg/postgres:14.1
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
