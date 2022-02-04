@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    parallelism: 4
+    parallelism: 1
     docker:
       # Bump cache key version below when changing elixir version
       - image: cimg/elixir:1.13.2
