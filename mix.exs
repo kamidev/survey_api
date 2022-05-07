@@ -4,7 +4,7 @@ defmodule SurveyAPI.Mixfile do
   def project do
     [
       app: :survey_api,
-      version: "1.6.11",
+      version: "1.7.0-dev",
       elixir: "~> 1.13",
       dialyzer: [plt_add_apps: [:mix]],
       elixirc_paths: elixirc_paths(Mix.env()),
