@@ -9,12 +9,12 @@ jobs:
           MIX_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
-          POSTGRES_PASSWORD:
+          POSTGRES_PASSWORD: null
       - image: cimg/postgres:14.2
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
-          POSTGRES_PASSWORD:
+          POSTGRES_PASSWORD: null
     # resource_class: medium+
     steps:
       - checkout
@@ -47,3 +47,5 @@ jobs:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: mix test
+    # The resource_class feature allows configuring CPU and RAM resources for each job. Different resource classes are available for different executors. https://circleci.com/docs/2.0/configuration-reference/#resourceclass
+    resource_class: large
