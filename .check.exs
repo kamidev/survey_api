@@ -8,6 +8,7 @@
     ## curated tools may be disabled (e.g. the check for compilation warnings)
     {:compiler, false},
     {:doctor, false},
+    {:dialyzer, false},
 
     ## Run Credo using default settings. Display results in compact format.
     {:credo, "mix credo --format oneline"},
