@@ -4,17 +4,15 @@
 
 SurveyAPI is an [Elixir](https://elixir-lang.org/) backend for [SurveyJS](https://surveyjs.io/Overview/Library/), a Javascript library for creating online forms and surveys.
 
-Web applications displaying surveys can use API calls to fetch survey definitions and store survey answers. Both surveys and answers follow a documented JSON format. Our backend store them in Postgres, using [Postgres JSONB](http://www.silota.com/docs/recipes/sql-postgres-json-data-types.html) to make JSON search quick and painless.
+Web applications displaying surveys can use API calls to fetch survey definitions and store survey answers. Both surveys and answers follow a documented JSON format. Our backend store them in Postgres, using [Postgres JSONB](http://www.silota.com/docs/recipes/sql-postgres-json-data-types.html) to make JSON search quick and painless. 
 
-Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html).
-
-To summarize: you should not use generators without understanding what they do. Here are reasonably current tutorials for writing an API [manually](https://elixircasts.io/json-api-with-phoenix-1.4) or using the latest [Phoenix 1.5 generators](https://www.poeticoding.com/another-guide-to-build-a-json-api-with-phoenix-1-5/).
+Phoenix API generators were originally used to create the API. [Here](https://becoming-functional.com/building-a-rest-api-with-phoenix-1-3-part-1-9f8754aeaa87) is the step-by-step description we used. The official Phoenix documentation has a long discussion about [the use and limitations of generators](https://hexdocs.pm/phoenix/contexts.html). To summarize: you should not use generators without understanding what they do. Here are some tutorials for writing an API [manually](https://elixircasts.io/json-api-with-phoenix-1.4) or using [Phoenix 1.5 generators](https://www.poeticoding.com/another-guide-to-build-a-json-api-with-phoenix-1-5/).
 
 ## Prerequisites
 
 ### Erlang and Elixir
 
-Elixir requires the Erlang/OTP runtime. Current versions for this project can be found in the root level file `.tool-versions`. Please make sure the correct versions are installed. Using the [asdf version manager](https://github.com/asdf-vm/asdf) to [install and manage Erlang and Elixir](https://www.mitchellhanberg.com/post/2017/10/05/installing-erlang-and-elixir-using-asdf/) is highly recommended for development. For production there are several other deployments alternatives.
+Elixir requires the Erlang/OTP runtime. Current versions for this project can be found in the root level file `.tool-versions`. Please make sure the correct versions are installed. Using the [asdf version manager](https://github.com/asdf-vm/asdf) to [install and manage Erlang and Elixir](https://www.mitchellhanberg.com/post/2017/10/05/installing-erlang-and-elixir-using-asdf/) is highly recommended for development. For production there are several other deployment alternatives.
 
 Check your installation by running the commandline shell `iex`. The result should be similar to this:
 
@@ -42,11 +40,11 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_
 
 ### Postgres
 
-Postgres 11 or later is required. At least one database user must have permissions to create databases.
+Postgres 14 is currently used for development. At least one database user must have permissions to create databases.
 
-On developer machines you could use a `postgres` user with password `postgres` (the default for new Elixir projects). In production, datatabase logins MUST be more secure. Phoenix by default keeps production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control.
+On developer machines you can use a `postgres` user with password `postgres` (the default for new Elixir projects). In production, datatabase logins MUST be more secure. Phoenix by default keeps production login and other sensitive information in a file named `prod.secret.exs`. For security reasons, this file should not be kept under version control.
 
-Note! Docker-based deployments should use environment variables instead of 'prod.secret.exs'.
+Note! Docker-based deployments use environment variables instead of 'prod.secret.exs'.
 
 ## Development
 
