@@ -10,7 +10,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
           POSTGRES_PASSWORD: null
-      - image: cimg/postgres:14.4
+      - image: cimg/postgres:15.1
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
