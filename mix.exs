@@ -5,7 +5,7 @@ defmodule SurveyAPI.Mixfile do
     [
       app: :survey_api,
       version: "1.18.0",
-      elixir: "~> 1.15",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
