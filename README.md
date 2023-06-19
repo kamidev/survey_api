@@ -1,6 +1,6 @@
 # SurveyAPI
 
-[![CircleCI](https://circleci.com/gh/username/ci-ember-demo.svg?style=svg)](https://circleci.com/gh/kamidev/survey_api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![CircleCI](https://circleci.com/gh/kamidev/survey_api.svg?style=svg)](https://circleci.com/gh/kamidev/survey_api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 SurveyAPI is an [Elixir](https://elixir-lang.org/) backend for [SurveyJS](https://surveyjs.io/Overview/Library/), a Javascript library for creating online forms and surveys.
 
