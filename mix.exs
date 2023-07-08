@@ -4,7 +4,7 @@ defmodule SurveyAPI.Mixfile do
   def project do
     [
       app: :survey_api,
-      version: "1.19.1",
+      version: "1.19.2",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
@@ -35,7 +35,7 @@ defmodule SurveyAPI.Mixfile do
       {:phoenix, "~> 1.7.6"},
       {:phoenix_view, "~> 2.0"},
       {:phoenix_pubsub, "~> 2.1.2"},
-      {:ecto, "~> 3.10.1"},
+      {:ecto, "~> 3.10.3"},
       {:ecto_sql, "~> 3.10.1"},
       {:postgrex, "~> 0.17.1"},
       {:phoenix_ecto, "~> 4.4.2"},
@@ -43,12 +43,12 @@ defmodule SurveyAPI.Mixfile do
       {:cors_plug, "~> 3.0.3"},
       {:plug_cowboy, "~> 2.6.1"},
       {:plug, "~> 1.14.2"},
-      {:jason, "~> 1.4.0"},
+      {:jason, "~> 1.4.1"},
       {:telemetry, "~> 1.2.1"},
       {:credo, "~> 1.7.0", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.12.2", only: :dev},
       {:dialyxir, "~> 1.3.0", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.29.4", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.30.1", only: :dev, runtime: false},
       {:doctor, ">= 0.21.0", only: [:dev], runtime: false},
       {:mix_audit, ">= 2.1.1", only: [:dev], runtime: false},
       {:ex_check, ">= 0.15.0", only: :dev, runtime: false}
