@@ -4,7 +4,7 @@ defmodule SurveyAPI.Mixfile do
   def project do
     [
       app: :survey_api,
-      version: "1.19.3",
+      version: "1.19.4",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
@@ -48,7 +48,7 @@ defmodule SurveyAPI.Mixfile do
       {:credo, "~> 1.7.0", only: [:dev, :test], runtime: false},
       {:sobelow, "~> 0.12.2", only: :dev},
       {:dialyxir, "~> 1.3.0", only: [:dev], runtime: false},
-      {:ex_doc, "~> 0.30.2", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.30.3", only: :dev, runtime: false},
       {:doctor, ">= 0.21.0", only: [:dev], runtime: false},
       {:mix_audit, ">= 2.1.1", only: [:dev], runtime: false},
       {:ex_check, ">= 0.15.0", only: :dev, runtime: false}
