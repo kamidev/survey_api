@@ -4,13 +4,13 @@ jobs:
     parallelism: 1
     docker:
       # Bump cache key version below when changing elixir version
-      - image: cimg/elixir:1.15
+      - image: cimg/elixir:1.15.3
         environment:
           MIX_ENV: test
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
           POSTGRES_PASSWORD: null
-      - image: cimg/postgres:16.0
+      - image: cimg/postgres:15.3
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
@@ -28,20 +28,24 @@ jobs:
           environment:
             MIX_ENV: test
       - save_cache:
-          key: v5-dependency-cache-{{ checksum "mix.lock" }}
+          key: v4-dependency-cache-{{ checksum "mix.lock" }}
           paths:
             - _build
             - deps
             - ~/.mix
       - restore_cache:
           keys:
-            - v5-plt-cache-{{ checksum "mix.lock" }}
-            - v5-plt-cache
+            - v4-plt-cache-{{ checksum "mix.lock" }}
+            - v4-plt-cache
       - save_cache:
-          key: v5-plt-cache-{{ checksum "mix.lock" }}
+          key: v4-plt-cache-{{ checksum "mix.lock" }}
           paths:
             - _build
             - ~/.mix
+      - run: mix credo
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: mix test
     # The resource_class feature allows configuring CPU and RAM resources for each job. Different resource classes are available for different executors. https://circleci.com/docs/2.0/configuration-reference/#resourceclass
     resource_class: large
