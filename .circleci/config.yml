@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    parallelism: 2
+    parallelism: 1
     docker:
       # Bump cache key version below when changing elixir version
       - image: cimg/elixir:1.16
@@ -10,7 +10,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
           POSTGRES_PASSWORD: null
-      - image: cimg/postgres:16.1
+      - image: cimg/postgres:15.3
         environment:
           POSTGRES_USER: postgres
           POSTGRES_DB: survey_api_test
