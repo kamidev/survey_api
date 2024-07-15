@@ -4,7 +4,7 @@ jobs:
     parallelism: 1
     docker:
       # Bump cache key version below when changing elixir version
-      - image: cimg/elixir:1.16
+      - image: cimg/elixir:1.17.2-erlang-26.2.1
         environment:
           MIX_ENV: test
           POSTGRES_USER: postgres
