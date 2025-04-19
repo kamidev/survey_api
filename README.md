@@ -1,7 +1,5 @@
 # SurveyAPI
 
-[![CircleCI](https://circleci.com/gh/kamidev/survey_api.svg?style=svg)](https://circleci.com/gh/kamidev/survey_api) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 SurveyAPI is an [Elixir](https://elixir-lang.org/) backend for [SurveyJS](https://surveyjs.io/Overview/Library/), a Javascript library for creating online forms and surveys.
 
 Web applications displaying surveys can use API calls to fetch survey definitions and store survey answers. Both surveys and answers follow a documented JSON format. Our backend store them in Postgres, using [Postgres JSONB](http://www.silota.com/docs/recipes/sql-postgres-json-data-types.html) to make JSON search quick and painless. 
